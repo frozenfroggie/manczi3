@@ -4,6 +4,8 @@ import { Link, graphql, StaticQuery } from 'gatsby'
 import PreviewCompatibleImage from './PreviewCompatibleImage'
 import Img from 'gatsby-image'
 import styled, { keyframes } from "styled-components"
+import classNames from 'classnames'
+import News from './News'
 
 const NewsTitle = styled.div`
   position: absolute;
@@ -24,36 +26,24 @@ class BlogRoll extends React.Component {
     const imageStyle = { borderRadius: '5px', width: '100%' }
     return (
       <div className="columns is-multiline">
-        {posts &&
-          posts.map(({ node: post }) => {
-            console.log(post.frontmatter.featuredimage)
-            return (
-            <div className="is-parent column is-6" key={post.id}>
-              <article
-                style={{padding: 0}}
-                className={`blog-list-item tile is-child box notification ${
-                  post.frontmatter.featuredpost ? 'is-featured' : ''
-                }`}>
-                <header>
-                {
-                  !!post.frontmatter && !!post.frontmatter.featuredimage && !!post.frontmatter.featuredimage.childImageSharp &&
-                  <Img style={imageStyle} fluid={post.frontmatter.featuredimage.childImageSharp.fluid} alt={post.title} />
-                }
-                  <p className="post-meta">
-                    <NewsTitle>
-                      <Link
-                        className="title has-text-primary is-size-4"
-                        to={post.fields.slug}>
-                        {post.frontmatter.title}
-                      </Link>
-                    </NewsTitle>
-                  </p>
-                </header>
-              </article>
+        <div className="is-parent column is-6">
+          { posts[0] && <News post={posts[0].node} idx="0"/> }
+        </div>
+        <div className="is-parent column is-6">
+          <div className="columns is-12">
+            <div className="is-child column is-6">
+              { posts[1] && <News post={posts[1].node} idx="1"/> }
             </div>
-          )
-          })
-        }
+            <div className="is-child column is-6">
+              { posts[2] && <News post={posts[2].node} idx="2"/> }
+            </div>
+          </div>
+          <div className="is-12 has-text-centered">
+            <Link style={{width: '100%'}} className="btn btn-pink" to="/blog">
+              Pokaż więcej
+            </Link>
+          </div>
+        </div>
       </div>
     )
   }
@@ -89,7 +79,7 @@ export default () => (
                 featuredpost
                 featuredimage {
                   childImageSharp {
-                    fluid(maxWidth: 500, quality: 100) {
+                    fluid(maxWidth: 700, quality: 100) {
                       ...GatsbyImageSharpFluid
                     }
                   }

@@ -29,104 +29,105 @@ export const IndexPageTemplate = ({
   mainpitch,
   description,
   intro,
-}) => (
-  <div>
-    <div
-      style={{
-        backgroundImage: `url(${
-          !!image.childImageSharp ? image.childImageSharp.fluid.src : image
-        })`,
-        backgroundPosition: `center`,
-        backgroundSize: 'cover',
-        marginTop: '0px',
-        width: '100%',
-        height: '100vh'
-      }}
-    >
+}) => {
+  const pageHeight = window.innerHeight;
+  return (
+    <div>
       <div
         style={{
-          paddingTop: '150px',
-          paddingRight: '50px',
-          display: 'flex',
-          height: '150px',
-          lineHeight: '1',
-          justifyContent: 'space-around',
-          alignItems: 'left',
-          flexDirection: 'column',
+          backgroundImage: `url(${
+            !!image.childImageSharp ? image.childImageSharp.fluid.src : image
+          })`,
+          backgroundPosition: `center`,
+          backgroundSize: 'cover',
+          marginTop: '0px',
+          width: '100%',
+          height: '100vh'
         }}
       >
-        <Title
-          className="is-size-3-mobile is-size-2-tablet is-size-1-widescreen"
-          weight="300"
+        <div
           style={{
-            color: '#ED1B68',
+            paddingTop: '150px',
+            paddingRight: '50px',
+            display: 'flex',
+            height: '150px',
             lineHeight: '1',
-            padding: '0.25em',
-            textAlign: 'right'
+            justifyContent: 'space-around',
+            alignItems: 'left',
+            flexDirection: 'column',
           }}
         >
-          {title}
-        </Title>
-        <Title
-          weight="300"
-          className="is-size-5-mobile is-size-5-tablet is-size-4-widescreen"
-          style={{
-            color: '#ED1B68',
-            lineHeight: '1',
-            padding: '0.25em',
-            textAlign: 'right'
-          }}
-        >
-          {subheading}
-        </Title>
+          <Title
+            className="is-size-3-mobile is-size-2-tablet is-size-1-widescreen"
+            weight="300"
+            style={{
+              color: '#ED1B68',
+              lineHeight: '1',
+              padding: '0.25em',
+              textAlign: 'right'
+            }}
+          >
+            {title}
+          </Title>
+          <Title
+            weight="300"
+            className="is-size-5-mobile is-size-5-tablet is-size-4-widescreen"
+            style={{
+              color: '#ED1B68',
+              lineHeight: '1',
+              padding: '0.25em',
+              textAlign: 'right'
+            }}
+          >
+            {subheading}
+          </Title>
+        </div>
+        <section id="section10" className="demo">
+          <a onClick={() => window.scrollTo({ top: pageHeight + 100, behavior: 'smooth' })}><span></span></a>
+        </section>
       </div>
-    </div>
-    <section className="section section--gradient">
-      <div className="container">
-        <div className="section">
-          <div className="columns">
-            <div className="column is-10 is-offset-1">
-              <div className="content">
-                <div className="content" style={{display: 'flex', alignItems: 'center', flexDirection: 'column'}}>
-                  <div className="tile" style={{width: '80%', textAlign: 'center'}}>
-                    <h3 className="subtitle" style={{color: '#009999', fontWeight: '400'}}>
-                      {mainpitch.title}
-                    </h3>
-                  </div>
-                  <div className="manczi">
-                    manczi
-                  </div>
-                  <div>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus enim massa, iaculis at porttitor vel, semper id tortor. Fusce vehicula, arcu quis aliquet auctor, urna augue fringilla turpis, in convallis nisl elit at tellus. Cras vel lectus ornare, pretium mauris a, dapibus tellus. Sed a leo facilisis, cursus turpis vitae, blandit enim. In pretium vulputate nibh, ut venenatis eros gravida eget. Nulla facilisi. Donec eget libero nec quam feugiat efficitur non quis sem. Nulla sagittis, nisi ut commodo euismod, magna sapien vehicula enim, vitae vestibulum risus ipsum vel lectus. Donec leo enim, semper sed iaculis ac, molestie eu mauris. Duis non tempus velit, quis dictum dui. Mauris vel malesuada velit. Fusce dolor quam, blandit vitae est non, congue maximus urna.
-                    <br/><br/>
-                  </div>
-                  <div className="columns">
-                    <div className="column is-12 has-text-centered">
-                      <Link className="btn" to="/products">
-                        Pokaż więcej
-                      </Link>
+      <section className="section section--gradient">
+        <div className="container">
+          <div className="section">
+            <div className="columns">
+              <div className="column is-10 is-offset-1">
+                <div className="content">
+                  <div className="content" style={{display: 'flex', alignItems: 'center', flexDirection: 'column'}}>
+                    <div className="tile" style={{width: '80%', textAlign: 'center'}}>
+                      <h3 className="subtitle" style={{color: '#009999', fontWeight: '400'}}>
+                        {mainpitch.title}
+                      </h3>
+                    </div>
+                    <div className="manczi">
+                      manczi
+                    </div>
+                    <div>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus enim massa, iaculis at porttitor vel, semper id tortor. Fusce vehicula, arcu quis aliquet auctor, urna augue fringilla turpis, in convallis nisl elit at tellus. Cras vel lectus ornare, pretium mauris a, dapibus tellus. Sed a leo facilisis, cursus turpis vitae, blandit enim. In pretium vulputate nibh, ut venenatis eros gravida eget. Nulla facilisi. Donec eget libero nec quam feugiat efficitur non quis sem. Nulla sagittis, nisi ut commodo euismod, magna sapien vehicula enim, vitae vestibulum risus ipsum vel lectus. Donec leo enim, semper sed iaculis ac, molestie eu mauris. Duis non tempus velit, quis dictum dui. Mauris vel malesuada velit. Fusce dolor quam, blandit vitae est non, congue maximus urna.
+                      <br/><br/>
+                    </div>
+                    <div className="columns">
+                      <div className="column is-12 has-text-centered">
+                        <Link className="btn" to="/products">
+                          Pokaż więcej
+                        </Link>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div className="column is-12" style={{marginTop: '150px'}}>
-                  <h3 className="has-text-weight-semibold is-size-2" style={{color: '#ED1B68'}}>
-                    Aktualności
-                  </h3>
-                  <BlogRoll />
-                  <div className="column is-12 has-text-centered">
-                    <Link className="btn" to="/blog">
-                      Read more
-                    </Link>
+                  <div className="column is-12" style={{margin: '150px 0px 100px 0px'}}>
+                    <h3 className="has-text-weight-semibold is-size-2" style={{color: '#ED1B68'}}>
+                      Aktualności
+                    </h3>
+                    <BlogRoll />
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-  </div>
-)
+      </section>
+    </div>
+  )
+}
 
 IndexPageTemplate.propTypes = {
   image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
