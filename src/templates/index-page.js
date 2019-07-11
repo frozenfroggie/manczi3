@@ -1,10 +1,25 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link, graphql } from 'gatsby'
+import styled, { keyframes } from "styled-components"
 
 import Layout from '../components/Layout'
 import Features from '../components/Features'
 import BlogRoll from '../components/BlogRoll'
+
+const Title = styled.span`
+  position: relative;
+  letter-spacing: 1px;
+  left: -1px;
+  font-size: 1em;
+  font-weight: ${props => props.weight};
+  white-space: pre;
+  @media only screen and (min-width: 1088px) {
+    white-space: normal;
+    left: 2px;
+    font-size: 1.24em;
+  }
+`
 
 export const IndexPageTemplate = ({
   image,
@@ -17,17 +32,21 @@ export const IndexPageTemplate = ({
 }) => (
   <div>
     <div
-      className="full-width-image margin-top-0"
       style={{
         backgroundImage: `url(${
           !!image.childImageSharp ? image.childImageSharp.fluid.src : image
         })`,
-        backgroundPosition: `top left`,
-        backgroundAttachment: `fixed`,
+        backgroundPosition: `center`,
+        backgroundSize: 'cover',
+        marginTop: '0px',
+        width: '100%',
+        height: '100vh'
       }}
     >
       <div
         style={{
+          paddingTop: '150px',
+          paddingRight: '50px',
           display: 'flex',
           height: '150px',
           lineHeight: '1',
@@ -36,32 +55,30 @@ export const IndexPageTemplate = ({
           flexDirection: 'column',
         }}
       >
-        <h1
-          className="has-text-weight-bold is-size-3-mobile is-size-2-tablet is-size-1-widescreen"
+        <Title
+          className="is-size-3-mobile is-size-2-tablet is-size-1-widescreen"
+          weight="300"
           style={{
-            boxShadow:
-              'rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px',
-            backgroundColor: 'rgb(255, 68, 0)',
-            color: 'white',
+            color: '#ED1B68',
             lineHeight: '1',
             padding: '0.25em',
+            textAlign: 'right'
           }}
         >
           {title}
-        </h1>
-        <h3
-          className="has-text-weight-bold is-size-5-mobile is-size-5-tablet is-size-4-widescreen"
+        </Title>
+        <Title
+          weight="300"
+          className="is-size-5-mobile is-size-5-tablet is-size-4-widescreen"
           style={{
-            boxShadow:
-              'rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px',
-            backgroundColor: 'rgb(255, 68, 0)',
-            color: 'white',
+            color: '#ED1B68',
             lineHeight: '1',
             padding: '0.25em',
+            textAlign: 'right'
           }}
         >
           {subheading}
-        </h3>
+        </Title>
       </div>
     </div>
     <section className="section section--gradient">
@@ -70,33 +87,30 @@ export const IndexPageTemplate = ({
           <div className="columns">
             <div className="column is-10 is-offset-1">
               <div className="content">
-                <div className="content">
-                  <div className="tile">
-                    <h1 className="title">{mainpitch.title}</h1>
-                  </div>
-                  <div className="tile">
-                    <h3 className="subtitle">{mainpitch.description}</h3>
-                  </div>
-                </div>
-                <div className="columns">
-                  <div className="column is-12">
-                    <h3 className="has-text-weight-semibold is-size-2">
-                      {heading}
+                <div className="content" style={{display: 'flex', alignItems: 'center', flexDirection: 'column'}}>
+                  <div className="tile" style={{width: '80%', textAlign: 'center'}}>
+                    <h3 className="subtitle" style={{color: '#009999', fontWeight: '400'}}>
+                      {mainpitch.title}
                     </h3>
-                    <p>{description}</p>
+                  </div>
+                  <div className="manczi">
+                    manczi
+                  </div>
+                  <div>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus enim massa, iaculis at porttitor vel, semper id tortor. Fusce vehicula, arcu quis aliquet auctor, urna augue fringilla turpis, in convallis nisl elit at tellus. Cras vel lectus ornare, pretium mauris a, dapibus tellus. Sed a leo facilisis, cursus turpis vitae, blandit enim. In pretium vulputate nibh, ut venenatis eros gravida eget. Nulla facilisi. Donec eget libero nec quam feugiat efficitur non quis sem. Nulla sagittis, nisi ut commodo euismod, magna sapien vehicula enim, vitae vestibulum risus ipsum vel lectus. Donec leo enim, semper sed iaculis ac, molestie eu mauris. Duis non tempus velit, quis dictum dui. Mauris vel malesuada velit. Fusce dolor quam, blandit vitae est non, congue maximus urna.
+                    <br/><br/>
+                  </div>
+                  <div className="columns">
+                    <div className="column is-12 has-text-centered">
+                      <Link className="btn" to="/products">
+                        Pokaż więcej
+                      </Link>
+                    </div>
                   </div>
                 </div>
-                <Features gridItems={intro.blurbs} />
-                <div className="columns">
-                  <div className="column is-12 has-text-centered">
-                    <Link className="btn" to="/products">
-                      See all products
-                    </Link>
-                  </div>
-                </div>
-                <div className="column is-12">
-                  <h3 className="has-text-weight-semibold is-size-2">
-                    Latest stories
+                <div className="column is-12" style={{marginTop: '150px'}}>
+                  <h3 className="has-text-weight-semibold is-size-2" style={{color: '#ED1B68'}}>
+                    Aktualności
                   </h3>
                   <BlogRoll />
                   <div className="column is-12 has-text-centered">
@@ -170,7 +184,6 @@ export const pageQuery = graphql`
         subheading
         mainpitch {
           title
-          description
         }
         description
         intro {
