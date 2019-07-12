@@ -3,10 +3,7 @@ import { Link } from 'gatsby'
 import styled, { keyframes } from "styled-components"
 
 import logo from '../img/logo.png'
-import facebook from '../img/social/facebook.svg'
-import instagram from '../img/social/instagram.svg'
-import twitter from '../img/social/twitter.svg'
-import vimeo from '../img/social/vimeo.svg'
+import facebook from '../img/fb-icon.png'
 
 const Footer = class extends React.Component {
   render() {
@@ -57,12 +54,12 @@ const Footer = class extends React.Component {
                   </ul>
                 </section>
               </div>
-              <div className="column is-3 social">
-                <a title="facebook" href="https://facebook.com">
+              <div className="column is-3"  style={{ display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+                <a title="facebook" href="https://facebook.com"  style={{display: 'flex', height: '100%', width: '100%', justifyContent: 'center', alignItems: 'center'}}>
                   <img
                     src={facebook}
                     alt="Facebook"
-                    style={{ width: '1em', height: '1em' }}
+                    style={{ width: '50px', height: '50px' }}
                   />
                 </a>
               </div>

@@ -47,7 +47,7 @@ export const IndexPageTemplate = ({
       >
         <div
           style={{
-            paddingTop: '150px',
+            paddingTop: '170px',
             paddingRight: '50px',
             display: 'flex',
             height: '150px',
@@ -58,32 +58,32 @@ export const IndexPageTemplate = ({
           }}
         >
           <Title
-            className="is-size-3-mobile is-size-2-tablet is-size-1-widescreen"
             weight="300"
             style={{
               color: '#ED1B68',
               lineHeight: '1',
               padding: '0.25em',
-              textAlign: 'right'
+              textAlign: 'right',
+              fontSize: '2.5em'
             }}
           >
             {title}
           </Title>
           <Title
             weight="300"
-            className="is-size-5-mobile is-size-5-tablet is-size-4-widescreen"
             style={{
               color: '#ED1B68',
               lineHeight: '1',
               padding: '0.25em',
-              textAlign: 'right'
+              textAlign: 'right',
+              fontSize: '3.5em'
             }}
           >
             {subheading}
           </Title>
         </div>
         <section id="section10" className="demo">
-          <a onClick={() => window.scrollTo({ top: pageHeight + 100, behavior: 'smooth' })}><span></span></a>
+          <a onClick={() => window.scrollTo({ top: pageHeight + 140, behavior: 'smooth' })}><span></span></a>
         </section>
       </div>
       <section className="section section--gradient">
@@ -94,16 +94,15 @@ export const IndexPageTemplate = ({
                 <div className="content">
                   <div className="content" style={{display: 'flex', alignItems: 'center', flexDirection: 'column'}}>
                     <div className="tile" style={{width: '80%', textAlign: 'center'}}>
-                      <h3 className="subtitle" style={{color: '#009999', fontWeight: '400'}}>
+                      <h3 className="subtitle" style={{color: '#009999', fontWeight: '400', marginTop: 50}}>
                         {mainpitch.title}
                       </h3>
                     </div>
                     <div className="manczi">
                       manczi
                     </div>
-                    <div>
+                    <div style={{marginBottom: 50}}>
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus enim massa, iaculis at porttitor vel, semper id tortor. Fusce vehicula, arcu quis aliquet auctor, urna augue fringilla turpis, in convallis nisl elit at tellus. Cras vel lectus ornare, pretium mauris a, dapibus tellus. Sed a leo facilisis, cursus turpis vitae, blandit enim. In pretium vulputate nibh, ut venenatis eros gravida eget. Nulla facilisi. Donec eget libero nec quam feugiat efficitur non quis sem. Nulla sagittis, nisi ut commodo euismod, magna sapien vehicula enim, vitae vestibulum risus ipsum vel lectus. Donec leo enim, semper sed iaculis ac, molestie eu mauris. Duis non tempus velit, quis dictum dui. Mauris vel malesuada velit. Fusce dolor quam, blandit vitae est non, congue maximus urna.
-                      <br/><br/>
                     </div>
                     <div className="columns">
                       <div className="column is-12 has-text-centered">
@@ -113,8 +112,8 @@ export const IndexPageTemplate = ({
                       </div>
                     </div>
                   </div>
-                  <div className="column is-12" style={{margin: '150px 0px 100px 0px'}}>
-                    <h3 className="has-text-weight-semibold is-size-2" style={{color: '#ED1B68'}}>
+                  <div className="column is-12" style={{margin: '150px 0px 100px 0px', padding: 0}}>
+                    <h3 className="has-text-weight-semibold is-size-2" style={{color: '#ED1B68', marginBottom: '50px'}}>
                       Aktualności
                     </h3>
                     <BlogRoll />
