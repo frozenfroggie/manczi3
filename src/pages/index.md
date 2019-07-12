@@ -3,7 +3,7 @@ templateKey: index-page
 title: Podaruj swojemu psu luksus,
 image: /img/home-jumbotron.jpg
 heading: Great coffee with a conscience
-subheading: na jaki zasługuje!  
+subheading: na jaki zasługuje!
 mainpitch:
   title: Z prawdziwą przyjemnością zapraszam Państwa do salonu pielęgnacji psów i kotów
 description: >-
