@@ -64,7 +64,7 @@ export const IndexPageTemplate = ({
               lineHeight: '1',
               padding: '0.25em',
               textAlign: 'right',
-              fontSize: '2.5em',
+              fontSize: '2.7em',
               fontWeight: '300'
             }}
           >
@@ -77,9 +77,9 @@ export const IndexPageTemplate = ({
               lineHeight: '1',
               padding: '0.25em',
               textAlign: 'right',
-              fontSize: '2.6em',
+              fontSize: '2.8em',
               fontWeight: '400',
-              letterSpacing: '1.25px'
+              letterSpacing: '1.3px'
             }}
           >
             {subheading}

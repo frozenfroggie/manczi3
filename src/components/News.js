@@ -26,9 +26,9 @@ const News = ({post, idx}) => {
   console.log(idx)
   const imageStyle = { borderRadius: '4px', minHeight: '100%', width: 'auto' }
   if (idx === '0') {
-    imageStyle.minHeight = 350
+    imageStyle.height = 360
   } else {
-    imageStyle.minHeight = 267
+    imageStyle.height = 277
   }
   return (
     <div>
