@@ -30,7 +30,7 @@ export const IndexPageTemplate = ({
   description,
   intro,
 }) => {
-  const pageHeight = window.innerHeight;
+  const pageHeight = typeof window !== 'undefined' && window.innerHeight;
   return (
     <div>
       <div
