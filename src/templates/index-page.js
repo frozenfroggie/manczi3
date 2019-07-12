@@ -83,7 +83,7 @@ export const IndexPageTemplate = ({
           </Title>
         </div>
         <section id="section10" className="demo">
-          <a onClick={() => window.scrollTo({ top: pageHeight + 140, behavior: 'smooth' })}><span></span></a>
+          <a onClick={() => typeof window !== 'undefined' && window.scrollTo({ top: pageHeight + 140, behavior: 'smooth' })}><span></span></a>
         </section>
       </div>
       <section className="section section--gradient">
