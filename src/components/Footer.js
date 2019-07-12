@@ -5,6 +5,16 @@ import styled, { keyframes } from "styled-components"
 import logo from '../img/logo.png'
 import facebook from '../img/fb-icon.png'
 
+const FacebookIcon = styled.img`
+  width: 48px;
+  height: 48px;
+  transition: all .4s;
+  &:hover {
+    cursor: pointer;
+    transform: rotate(360deg);
+  }
+`
+
 const Footer = class extends React.Component {
   render() {
     return (
@@ -55,16 +65,15 @@ const Footer = class extends React.Component {
                 </section>
               </div>
               <div className="column is-3"  style={{ display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-                <a title="facebook" href="https://facebook.com"  style={{display: 'flex', height: '100%', width: '100%', justifyContent: 'center', alignItems: 'center'}}>
-                  <img
+                <a title="facebook" href="https://facebook.com"  style={{display: 'flex', height: '48px', width: '48px', justifyContent: 'center', alignItems: 'center'}}>
+                  <FacebookIcon
                     src={facebook}
                     alt="Facebook"
-                    style={{ width: '50px', height: '50px' }}
                   />
                 </a>
               </div>
               <div className="column is-3">
-                <section className="contact" style={{height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+                <section className="contact" style={{height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', lineHeight: '2.2em'}}>
                   <p>
                     ul. Pocztowa 13/9<br/>
                     89-600 Chojnice<br/>
