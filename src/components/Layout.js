@@ -45,7 +45,7 @@ const TemplateWrapper = ({ children }) => {
         <meta property="og:image" content="/img/og-image.jpg" />
       </Helmet>
       <Navbar />
-      <div>{children}</div>
+      <div style={{minHeight: 'calc(100vh - 100px)'}}>{children}</div>
       <Footer />
     </div>
   )

@@ -33,6 +33,7 @@ body
 
 .navbar
   background-color: transparent !important
+  height: 100px
 
 .navbar .navbar-menu
   box-shadow:none !important
@@ -58,13 +59,13 @@ body
 // Helper Classes
 .full-width-image-container
   width: 100vw
-  height: 400px
+  height: 330px
   position: relative
   left: 50%
   right: 50%
   margin: 2em -50vw
   background-size: cover
-  background-position: bottom
+  background-position: 10% 32%
   display: flex
   justify-content: center
   align-items: center
@@ -188,6 +189,7 @@ $menu-label-color: $white-ter
   &:hover
     background-color: $manczi-blue
     color: white
+    cursor: pointer
 
 .btn-pink
   border: 2px solid $manczi-pink
@@ -291,3 +293,7 @@ footer.footer
 
 a.has-text-primary:hover, a.has-text-primary:focus
   color: white !important
+
+.active
+  color: $manczi-pink
+  font-weight: 600

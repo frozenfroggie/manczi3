@@ -40,15 +40,15 @@ export const IndexPageTemplate = ({
           })`,
           backgroundPosition: `center`,
           backgroundSize: 'cover',
-          marginTop: '0px',
+          marginTop: '-85px',
           width: '100%',
           height: '100vh'
         }}
       >
         <div
           style={{
-            paddingTop: '170px',
-            paddingRight: '50px',
+            paddingTop: '300px',
+            paddingRight: '70px',
             display: 'flex',
             height: '150px',
             lineHeight: '1',
@@ -62,7 +62,21 @@ export const IndexPageTemplate = ({
             style={{
               color: '#ED1B68',
               lineHeight: '1',
-              padding: '0.25em',
+              padding: '0.2em',
+              textAlign: 'right',
+              fontSize: '7em',
+              fontWeight: '300'
+            }}
+            className="manczi"
+          >
+            manczi
+          </Title>
+          <Title
+            weight="300"
+            style={{
+              color: '#ED1B68',
+              lineHeight: '1',
+              padding: '0.2em 0.5em',
               textAlign: 'right',
               fontSize: '2.7em',
               fontWeight: '300'
@@ -75,9 +89,9 @@ export const IndexPageTemplate = ({
             style={{
               color: '#ED1B68',
               lineHeight: '1',
-              padding: '0.25em',
+              padding: '0.2em 0.5em',
               textAlign: 'right',
-              fontSize: '2.8em',
+              fontSize: '2.7em',
               fontWeight: '400',
               letterSpacing: '1.3px'
             }}
@@ -86,7 +100,7 @@ export const IndexPageTemplate = ({
           </Title>
         </div>
         <section id="section10" className="demo">
-          <a onClick={() => typeof window !== 'undefined' && window.scrollTo({ top: pageHeight + 140, behavior: 'smooth' })}><span></span></a>
+          <a onClick={() => typeof window !== 'undefined' && window.scrollTo({ top: pageHeight + 50, behavior: 'smooth' })}><span></span></a>
         </section>
       </div>
       <section className="section section--gradient">
