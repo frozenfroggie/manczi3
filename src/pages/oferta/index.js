@@ -57,6 +57,7 @@ const ServiceBack = styled.div`
 const Img = styled.img`
   width: 200px;
   height: 200px;
+  position: relative;
 `
 
 const ServiceWrapper = styled.div`
@@ -83,7 +84,7 @@ export default class OfferIndexPage extends React.Component {
             backgroundImage: `url(${OfferWallpaper})`
           }}>
           <div style={{
-            background: 'linear-gradient(to top right, rgba(237,27,104, 0.4), transparent, rgba(0,153,153, 0.5))',
+            background: 'linear-gradient(to top right, rgba(237,27,104, 0.4), 6%, transparent)',
             color: '#fff',
             padding: '2rem 6rem',
             width: '100%',
@@ -107,7 +108,7 @@ export default class OfferIndexPage extends React.Component {
                       <ServiceWrapper>
                         <Service>
                           <ServiceFront>
-                            <Img src={Clipping} alt="Clipping" />
+                            <Img src={Clipping} alt="Clipping" style={{top: -5, left: -5}}/>
                           </ServiceFront>
                           <ServiceBack>
                             Strzyżenie
@@ -122,7 +123,7 @@ export default class OfferIndexPage extends React.Component {
                       <ServiceWrapper>
                         <Service>
                           <ServiceFront>
-                            <Img src={Dripping} alt="Dripping" />
+                            <Img src={Dripping} alt="Dripping" style={{top: -5}} />
                           </ServiceFront>
                           <ServiceBack>
                             Kąpanie
@@ -137,7 +138,7 @@ export default class OfferIndexPage extends React.Component {
                       <ServiceWrapper>
                         <Service>
                           <ServiceFront>
-                            <Img src={Combing} alt="Combing" />
+                            <Img src={Combing} alt="Combing" style={{top: -5}} />
                           </ServiceFront>
                           <ServiceBack>
                             Wyczesywanie
@@ -169,7 +170,7 @@ export default class OfferIndexPage extends React.Component {
                       <ServiceWrapper>
                         <Service>
                           <ServiceFront>
-                            <Img src={Exhibitions} alt="Preparing for exhibitions" />
+                            <Img src={Exhibitions} alt="Preparing for exhibitions" style={{top: -10}} />
                           </ServiceFront>
                           <ServiceBack>
                             Przygotowanie do wystaw
@@ -184,7 +185,7 @@ export default class OfferIndexPage extends React.Component {
                       <ServiceWrapper>
                         <Service>
                           <ServiceFront>
-                            <Img src={Coloring} alt="Coloring" />
+                            <Img src={Coloring} alt="Coloring" style={{top: -10, left: -5}}/>
                           </ServiceFront>
                           <ServiceBack>
                             Farbowanie
