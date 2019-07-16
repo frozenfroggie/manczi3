@@ -1,45 +1,83 @@
 import React from 'react'
+import { graphql, StaticQuery } from 'gatsby'
 
 import Layout from '../../components/Layout'
-import OfferWallpaper from '../../img/offerWallpaper.jpg'
+import GalleryRoll from '../../components/GalleryRoll'
 
-export default class GalleryIndexPage extends React.Component {
+class GalleryIndexPage extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      folderToOpen: null
+    }
+  }
+  openFolder = (idx) => {
+    this.setState({
+      folderToOpen: idx
+    }, () => {
+      // window.scrollTo({top: window.innerHeight - 220, behavior: 'smooth'})
+    })
+  }
+  goBack = () => {
+    this.setState({
+      folderToOpen: null
+    })
+  }
   render() {
+    const { edges: posts } = this.props.data.allMarkdownRemark
     return (
-      <Layout>
-        <div
-          className="full-width-image-container margin-top-0"
-          style={{
-            backgroundImage: `url(${OfferWallpaper})`
-          }}>
-          <div style={{
-            background: 'linear-gradient(to top right, #009999, 10%, transparent, 90%, #ED1B68)',
-            color: '#fff',
-            padding: '2rem 6rem',
-            width: '100%',
-            height: '100%',
-            display: 'flex',
-            justifyContent: 'flex-start',
-            alignItems: 'flex-end'
-          }}>
-            <h2 className="has-text-weight-bold is-size-1">
-              Galeria
-            </h2>
-          </div>
-        </div>
-        <section className="section">
-          <div className="container">
-            <div className="content">
-              <div className="columns">
-                <div className="column is-9">
-                </div>
-                <div className="column is-3">
+        <Layout>
+            <section className="section section-main section-gallery" >
+              <div className="container">
+                <div className="content">
+                  <GalleryRoll
+                    folderToOpen={this.state.folderToOpen}
+                    openFolder={this.openFolder}
+                    goBack={this.goBack}
+                    posts={posts} />
                 </div>
               </div>
-            </div>
-          </div>
-        </section>
-      </Layout>
-    )
+            </section>
+        </Layout>
+      )
   }
 }
+
+export default props => (
+  <StaticQuery
+    query={graphql`
+    query GalleryQuery {
+      allMarkdownRemark(
+        sort: { order: DESC, fields: [frontmatter___date] },
+        filter: { frontmatter: { templateKey: { eq: "gallery-page" } }}
+      ) {
+        edges {
+          node {
+            excerpt(pruneLength: 400)
+            id
+            fields {
+              slug
+            }
+            frontmatter {
+              title
+              galleryImages {
+                image {
+                  childImageSharp {
+                    fluid(maxWidth: 200, quality: 64) {
+                      ...GatsbyImageSharpFluid
+                    }
+                  }
+                }
+                description
+              }
+            }
+          }
+        }
+      }
+    }
+    `}
+    render={(data, location) => (
+      <GalleryIndexPage data={data} {...props} />
+    )}
+  />
+)

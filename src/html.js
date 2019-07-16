@@ -24,6 +24,8 @@ export default function HTML(props) {
           id="___gatsby"
           dangerouslySetInnerHTML={{ __html: props.body }}
         />
+        <div id="modal">
+        </div>
         {props.postBodyComponents}
       </body>
     </html>

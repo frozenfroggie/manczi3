@@ -36,6 +36,7 @@ const ServiceFront = styled.div`
   box-sizing: border-box;
   border: 4px solid #009999;
   transition: all .4s;
+  /* transition-timing-function: cubic-bezier(.175, .885, .32, 1.275); */
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   transform-style: preserve-3d;
   perspective: 1000px;
@@ -56,6 +57,7 @@ const ServiceBack = styled.div`
   font-size: 1.6em;
   padding: 25px;
   transition: all .4s;
+  /* transition-timing-function: cubic-bezier(.175, .885, .32, 1.275); */
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   transform-style: preserve-3d;
   perspective: 1000px;
