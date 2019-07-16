@@ -19,29 +19,32 @@ const Service = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 4px solid #009999;
-  transition: all .4s;
-  transform-style: preserve-3d;
-  perspective: 1000px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  &:hover {
-    cursor: pointer;
+  &:hover .front {
     transform: rotateY(180deg);
+  }
+  &:hover .back {
+    transform: rotateY(0deg);
   }
 `
 
 const ServiceFront = styled.div`
   position: absolute;
-  height: 100%;
-  width: 100%;
+  height: 200px;
+  width: 200px;
   backface-visibility: hidden;
   border-radius: 50%;
+  box-sizing: border-box;
+  border: 4px solid #009999;
+  transition: all .4s;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transform-style: preserve-3d;
+  perspective: 1000px;
 `
 
 const ServiceBack = styled.div`
   position: absolute;
-  height: calc(100% + 3px);
-  width: calc(100% + 3px);
+  height: calc(99% + 4px);
+  width: calc(99% + 4px);
   background-color: #009999;
   backface-visibility: hidden;
   transform: rotateY(180deg);
@@ -51,7 +54,11 @@ const ServiceBack = styled.div`
   justify-content: center;
   align-items: center;
   font-size: 1.6em;
-  padding: 20px;
+  padding: 25px;
+  transition: all .4s;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transform-style: preserve-3d;
+  perspective: 1000px;
 `
 
 const Img = styled.img`
@@ -107,10 +114,10 @@ export default class OfferIndexPage extends React.Component {
                     <div className="column is-4">
                       <ServiceWrapper>
                         <Service>
-                          <ServiceFront>
-                            <Img src={Clipping} alt="Clipping" style={{top: -5, left: -5}}/>
+                          <ServiceFront className="front">
+                            <Img src={Clipping} alt="Clipping" style={{top: -6, left: -6}}/>
                           </ServiceFront>
-                          <ServiceBack>
+                          <ServiceBack className="back">
                             Strzyżenie
                           </ServiceBack>
                         </Service>
@@ -122,10 +129,10 @@ export default class OfferIndexPage extends React.Component {
                     <div className="column is-4">
                       <ServiceWrapper>
                         <Service>
-                          <ServiceFront>
+                          <ServiceFront className="front">
                             <Img src={Dripping} alt="Dripping" style={{top: -5}} />
                           </ServiceFront>
-                          <ServiceBack>
+                          <ServiceBack className="back">
                             Kąpanie
                           </ServiceBack>
                         </Service>
@@ -137,10 +144,10 @@ export default class OfferIndexPage extends React.Component {
                     <div className="column is-4">
                       <ServiceWrapper>
                         <Service>
-                          <ServiceFront>
+                          <ServiceFront className="front">
                             <Img src={Combing} alt="Combing" style={{top: -5}} />
                           </ServiceFront>
-                          <ServiceBack>
+                          <ServiceBack className="back">
                             Wyczesywanie
                           </ServiceBack>
                         </Service>
@@ -154,10 +161,10 @@ export default class OfferIndexPage extends React.Component {
                     <div className="column is-4">
                       <ServiceWrapper>
                         <Service>
-                          <ServiceFront>
+                          <ServiceFront className="front">
                             <Img src={Trimming} alt="Trimming" />
                           </ServiceFront>
-                          <ServiceBack>
+                          <ServiceBack className="back">
                             Trymowanie
                           </ServiceBack>
                         </Service>
@@ -169,10 +176,10 @@ export default class OfferIndexPage extends React.Component {
                     <div className="column is-4">
                       <ServiceWrapper>
                         <Service>
-                          <ServiceFront>
-                            <Img src={Exhibitions} alt="Preparing for exhibitions" style={{top: -10}} />
+                          <ServiceFront className="front">
+                            <Img src={Exhibitions} alt="Preparing for exhibitions" style={{top: -11}} />
                           </ServiceFront>
-                          <ServiceBack>
+                          <ServiceBack className="back">
                             Przygotowanie do wystaw
                           </ServiceBack>
                         </Service>
@@ -184,10 +191,10 @@ export default class OfferIndexPage extends React.Component {
                     <div className="column is-4">
                       <ServiceWrapper>
                         <Service>
-                          <ServiceFront>
-                            <Img src={Coloring} alt="Coloring" style={{top: -10, left: -5}}/>
+                          <ServiceFront className="front">
+                            <Img src={Coloring} alt="Coloring" style={{top: -11, left: -5}}/>
                           </ServiceFront>
-                          <ServiceBack>
+                          <ServiceBack className="back">
                             Farbowanie
                           </ServiceBack>
                         </Service>

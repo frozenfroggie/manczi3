@@ -41,7 +41,7 @@ const News = ({post, idx}) => {
           !!post.frontmatter && !!post.frontmatter.featuredimage && !!post.frontmatter.featuredimage.childImageSharp &&
           <Img style={imageStyle} fluid={post.frontmatter.featuredimage.childImageSharp.fluid} alt={post.title} />
         }
-          <p className="post-meta">
+          <div className="post-meta">
             <NewsTitle size={idx === '0' ? '1.4' : '1.05'}>
               <Link
                 className="title has-text-primary is-size-4"
@@ -49,7 +49,7 @@ const News = ({post, idx}) => {
                 {post.frontmatter.title}
               </Link>
             </NewsTitle>
-          </p>
+          </div>
       </article>
     </div>
   )
