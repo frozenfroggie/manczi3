@@ -1,28 +1,55 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link, graphql } from 'gatsby'
-import styled, { keyframes } from "styled-components"
+import styled from "styled-components"
 
 import Layout from '../components/Layout'
 import Features from '../components/Features'
 import BlogRoll from '../components/BlogRoll'
 
+const BackgroundWallpaper = styled.div`
+  background-position: 0%;
+  background-size: cover;
+  margin-top: -90px;
+  width: 100%;
+  height: 100vh;
+  background-image: url(${props => props.imageMobile});
+  @media only screen and (min-width: 1088px) {
+    background-position: 50%;
+    margin-top: -85px;
+    background-image: url(${props => props.image});
+  }
+`
+
+const TitleContainer = styled.span`
+  font-size: 10px;
+  height: 150px;
+  background: none;
+  padding: 30px 100px 30px 5px;
+  @media only screen and (min-width: 1088px) {
+    padding: 30px 100px 30px 30px;
+    font-size: 15px;
+    height: 150px;
+  }
+`
+
 const Title = styled.span`
   position: relative;
   letter-spacing: 1px;
   left: -1px;
-  font-size: 1em;
+  font-size: ${props => props.size}em;
   font-weight: ${props => props.weight};
   white-space: pre;
+  color: #ED1B68;
   @media only screen and (min-width: 1088px) {
     white-space: normal;
     left: 2px;
-    font-size: 1.24em;
   }
 `
 
 export const IndexPageTemplate = ({
   image,
+  imageMobile,
   title,
   heading,
   subheading,
@@ -33,24 +60,14 @@ export const IndexPageTemplate = ({
   const pageHeight = typeof window !== 'undefined' && window.innerHeight;
   return (
     <div>
-      <div
-        style={{
-          backgroundImage: `url(${
-            !!image.childImageSharp ? image.childImageSharp.fluid.src : image
-          })`,
-          backgroundPosition: `center`,
-          backgroundSize: 'cover',
-          marginTop: '-85px',
-          width: '100%',
-          height: '100vh'
-        }}
-      >
-        <div
+      <BackgroundWallpaper
+        image={!!image.childImageSharp ? image.childImageSharp.fluid.src : image}
+        imageMobile={!!imageMobile.childImageSharp ? imageMobile.childImageSharp.fluid.src : imageMobile}>
+        <TitleContainer
           style={{
-            paddingTop: '300px',
-            paddingRight: '70px',
+            position: 'relative',
+            top: '150px',
             display: 'flex',
-            height: '150px',
             lineHeight: '1',
             justifyContent: 'space-around',
             alignItems: 'left',
@@ -59,12 +76,12 @@ export const IndexPageTemplate = ({
         >
           <Title
             weight="300"
+            size="7"
             style={{
               color: '#ED1B68',
               lineHeight: '1',
               padding: '0.2em',
               textAlign: 'right',
-              fontSize: '7em',
               fontWeight: '300'
             }}
             className="manczi"
@@ -73,36 +90,32 @@ export const IndexPageTemplate = ({
           </Title>
           <Title
             weight="300"
+            size="2.7"
             style={{
-              color: '#ED1B68',
               lineHeight: '1',
               padding: '0.2em 0.5em',
               textAlign: 'right',
-              fontSize: '2.7em',
-              fontWeight: '300'
             }}
           >
             {title}
           </Title>
           <Title
-            weight="300"
+            weight="400"
+            size="2.7"
             style={{
-              color: '#ED1B68',
               lineHeight: '1',
               padding: '0.2em 0.5em',
               textAlign: 'right',
-              fontSize: '2.7em',
-              fontWeight: '400',
               letterSpacing: '1.3px'
             }}
           >
             {subheading}
           </Title>
-        </div>
+        </TitleContainer>
         <section id="section10" className="demo">
           <a onClick={() => typeof window !== 'undefined' && window.scrollTo({ top: pageHeight + 50, behavior: 'smooth' })}><span></span></a>
         </section>
-      </div>
+      </BackgroundWallpaper>
       <section className="section section--gradient">
         <div className="container">
           <div className="section">
@@ -164,6 +177,7 @@ const IndexPage = ({ data }) => {
     <Layout>
       <IndexPageTemplate
         image={frontmatter.image}
+        imageMobile={frontmatter.imageMobile}
         title={frontmatter.title}
         heading={frontmatter.heading}
         subheading={frontmatter.subheading}
@@ -190,6 +204,13 @@ export const pageQuery = graphql`
     markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
       frontmatter {
         title
+        imageMobile {
+          childImageSharp {
+            fluid(maxWidth: 900, quality: 100) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
         image {
           childImageSharp {
             fluid(maxWidth: 2048, quality: 100) {
@@ -201,21 +222,6 @@ export const pageQuery = graphql`
         subheading
         mainpitch {
           title
-        }
-        description
-        intro {
-          blurbs {
-            image {
-              childImageSharp {
-                fluid(maxWidth: 240, quality: 64) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-            text
-          }
-          heading
-          description
         }
       }
     }

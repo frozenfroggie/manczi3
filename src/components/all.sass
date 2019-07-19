@@ -18,9 +18,10 @@ $primary-invert: $manczi-blue
 $body-color: #333
 $black: #2b2523
 
-body
+html, body
   color: $manczi-blue-text-small !important
   font-family: 'Josefin Sans', sans-serif !important
+  width: 100vw
 
 .manczi
   font-family: 'Manczi'
@@ -33,13 +34,18 @@ body
 
 .navbar
   background-color: transparent !important
-  height: 100px
+  @media only screen and (min-width: 1088px)
+    background-color: transparent !important
+  height: 90px
 
 .navbar .navbar-menu
   box-shadow:none !important
-  display: flex
+  display: none
+  background-color: $manczi-blue-light !important
+  @media only screen and (min-width: 1088px)
+    background-color: transparent !important
+    display: flex
   justify-content: space-evenly
-  background-color: transparent !important
 
 .content .taglist
   list-style: none
@@ -58,17 +64,14 @@ body
 
 // Helper Classes
 .full-width-image-container
-  width: 100vw
-  height: 330px
+  width: 100%
+  height: 300px
   position: relative
   left: 50%
   right: 50%
-  margin: 2em -50vw
+  margin: 0em -50vw
   background-size: cover
   background-position: 10% 52.5%
-  display: flex
-  justify-content: center
-  align-items: center
 
 .full-width-image
     width: 100vw
@@ -237,6 +240,9 @@ footer.footer
   height: 50px
   margin-left: -15px
   border: 2px solid $manczi-pink
+  background-color: rgba(0,0,0,0.6)
+  @media only screen and (min-width: 1088px)
+    background-color: rgba(250,250,250,0.6)
   border-radius: 50px
   box-sizing: border-box
 

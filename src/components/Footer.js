@@ -18,7 +18,7 @@ const FacebookIcon = styled.img`
 const Footer = class extends React.Component {
   render() {
     return (
-      <footer className="footer has-text-white-ter">
+      <footer className="footer has-text-white-ter" style={{zIndex: 101}}>
         <div className="content has-text-centered">
           <div className="container">
             <div className="columns">

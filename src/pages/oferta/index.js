@@ -11,14 +11,34 @@ import Trimming from '../../img/trimming.png'
 import Exhibitions from '../../img/exhibitions.png'
 import Coloring from '../../img/coloring.png'
 
+import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+
+const ArrowContainer = styled.div`
+  width: auto;
+  height: 100%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  background-color: white;
+  &:hover {
+    cursor: pointer;
+  }
+  @media only screen and (min-width: 769px) {
+    display: flex;
+  }
+
+`
+
 const Service = styled.div`
   position: relative;
   border-radius: 50%;
-  width: 200px;
-  height: 200px;
+  width: 185px;
+  height: 185px;
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 99;
   &:hover .front {
     transform: rotateY(180deg);
   }
@@ -29,8 +49,8 @@ const Service = styled.div`
 
 const ServiceFront = styled.div`
   position: absolute;
-  height: 200px;
-  width: 200px;
+  height: 185px;
+  width: 185px;
   backface-visibility: hidden;
   border-radius: 50%;
   box-sizing: border-box;
@@ -64,8 +84,8 @@ const ServiceBack = styled.div`
 `
 
 const Img = styled.img`
-  width: 200px;
-  height: 200px;
+  width: 185px;
+  height: 185px;
   position: relative;
 `
 
@@ -74,7 +94,7 @@ const ServiceWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 30px;
+  margin: 20px;
 `
 
 const ServiceName = styled.div`
@@ -84,6 +104,34 @@ const ServiceName = styled.div`
 `
 
 export default class OfferIndexPage extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      positionX: 0
+    }
+  }
+  previous = () => {
+    if(this.state.positionX == 0) {
+      this.setState(prevState => ({
+        positionX: parseFloat((prevState.positionX - 99.9).toFixed(1))
+      }))
+    } else {
+      this.setState(prevState => ({
+        positionX: parseFloat((prevState.positionX + 33.3).toFixed(1))
+      }))
+    }
+  }
+  next = () => {
+    if(this.state.positionX == -99.9) {
+      this.setState(prevState => ({
+        positionX: parseFloat((prevState.positionX + 99.9).toFixed(1))
+      }))
+    } else {
+      this.setState(prevState => ({
+        positionX: parseFloat((prevState.positionX - 33.3).toFixed(1))
+      }))
+    }
+  }
   render() {
     return (
       <Layout>
@@ -93,7 +141,7 @@ export default class OfferIndexPage extends React.Component {
             backgroundImage: `url(${OfferWallpaper})`
           }}>
           <div style={{
-            background: 'linear-gradient(to top right, rgba(237,27,104, 0.4), 6%, transparent)',
+            background: 'linear-gradient(to top right, #009999, 10%, transparent, 90%, #ED1B68)',
             color: '#fff',
             padding: '2rem 6rem',
             width: '100%',
@@ -102,17 +150,22 @@ export default class OfferIndexPage extends React.Component {
             justifyContent: 'flex-start',
             alignItems: 'flex-end'
           }}>
+            <h2 className="has-text-weight-bold is-size-1">
+              Nasze usługi
+            </h2>
           </div>
         </div>
-        <section className="section">
-          <div className="container">
+        <section className="section" style={{padding: 0, height: '100%'}}>
+          <div className="container" style={{margin: 0, width: '100vw', maxWidth: '100%'}}>
             <div className="content">
-              <div className="columns">
-                <div className="column is-10 is-offset-1">
-                  <h2 className="has-text-weight-bold is-size-1" style={{textAlign: 'center', color: '#ED1B68'}}>
-                    Nasze usługi
-                  </h2>
-                  <div className="columns is-12" style={{padding: '0px 20px'}}>
+              <div className="columns" style={{margin: 0}}>
+                <div className="column is-1" style={{backgroundColor: 'white', zIndex: 101}}>
+                  <ArrowContainer onClick={this.previous}>
+                    <FaChevronLeft size="4em" alt="Left" style={{top: -6, left: -6}} />
+                  </ArrowContainer>
+                </div>
+                <div className="column is-10" style={{zIndex: 100, backgroundColor: 'white'}}>
+                  <div className="columns is-tablet" style={{padding: '0px 20px', transition: 'transform .5s ease-in-out', transform: `translateX(${this.state.positionX}%)`}}>
                     <div className="column is-4">
                       <ServiceWrapper>
                         <Service>
@@ -123,9 +176,6 @@ export default class OfferIndexPage extends React.Component {
                             Strzyżenie
                           </ServiceBack>
                         </Service>
-                        <ServiceName>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. In placerat vehicula viverra. Praesent fermentum, massa a egestas eleifend, erat eros iaculis nulla.
-                        </ServiceName>
                       </ServiceWrapper>
                     </div>
                     <div className="column is-4">
@@ -138,9 +188,6 @@ export default class OfferIndexPage extends React.Component {
                             Kąpanie
                           </ServiceBack>
                         </Service>
-                        <ServiceName>
-                          Proin fermentum elit non ex tristique, finibus semper felis aliquet. Mauris quis venenatis nisl. Quisque convallis quam id quam imperdiet, id tempor felis sollicitudin.
-                        </ServiceName>
                       </ServiceWrapper>
                     </div>
                     <div className="column is-4">
@@ -153,13 +200,8 @@ export default class OfferIndexPage extends React.Component {
                             Wyczesywanie
                           </ServiceBack>
                         </Service>
-                        <ServiceName>
-                          Nunc auctor sit amet dolor quis egestas. Integer ullamcorper tellus nec lorem iaculis, id molestie quam ullamcorper.
-                        </ServiceName>
                       </ServiceWrapper>
                     </div>
-                  </div>
-                  <div className="columns is-12"  style={{padding: 20}}>
                     <div className="column is-4">
                       <ServiceWrapper>
                         <Service>
@@ -170,9 +212,6 @@ export default class OfferIndexPage extends React.Component {
                             Trymowanie
                           </ServiceBack>
                         </Service>
-                        <ServiceName>
-                          Vestibulum finibus laoreet eros at blandit. Nam bibendum finibus mollis. Duis porta sem enim, vel consequat augue tincidunt sollicitudin.
-                        </ServiceName>
                       </ServiceWrapper>
                     </div>
                     <div className="column is-4">
@@ -185,9 +224,6 @@ export default class OfferIndexPage extends React.Component {
                             Przygotowanie do wystaw
                           </ServiceBack>
                         </Service>
-                        <ServiceName>
-                          Sed eu velit luctus, condimentum massa non, fringilla augue. Suspendisse at elementum nunc, ut hendrerit quam.
-                        </ServiceName>
                       </ServiceWrapper>
                     </div>
                     <div className="column is-4">
@@ -200,18 +236,19 @@ export default class OfferIndexPage extends React.Component {
                             Farbowanie
                           </ServiceBack>
                         </Service>
-                        <ServiceName>
-                          Suspendisse elit quam, sagittis eget molestie quis, aliquam at sapien. Aenean aliquet, ex id mollis blandit, lectus ex imperdiet augue, sit amet sagittis ante dui sit amet tortor.
-                        </ServiceName>
                       </ServiceWrapper>
                     </div>
                   </div>
+                </div>
+                <div className="column is-1" style={{backgroundColor: 'white', zIndex: 101}}>
+                  <ArrowContainer onClick={this.next} style={{right: 0}}>
+                    <FaChevronRight size="4em" alt="Right" style={{top: -6, left: -6}} />
+                  </ArrowContainer>
                 </div>
               </div>
             </div>
           </div>
         </section>
-        <div style={{height: 50}}></div>
       </Layout>
     )
   }
