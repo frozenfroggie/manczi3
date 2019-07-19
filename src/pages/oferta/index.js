@@ -150,12 +150,15 @@ export default class OfferIndexPage extends React.Component {
             justifyContent: 'flex-start',
             alignItems: 'flex-end'
           }}>
-            <h2 className="has-text-weight-bold is-size-1">
+            <h2 className="has-text-weight-bold is-size-1 except-mobile">
               Nasze usługi
             </h2>
           </div>
         </div>
         <section className="section" style={{padding: 0, height: '100%'}}>
+          <h2 className="has-text-weight-bold is-size-1 only-mobile" style={{marginTop: 50, textAlign: 'center', color: '#ED1B68'}}>
+            Nasze usługi
+          </h2>
           <div className="container" style={{margin: 0, width: '100vw', maxWidth: '100%'}}>
             <div className="content">
               <div className="columns" style={{margin: 0}}>

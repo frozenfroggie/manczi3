@@ -21,7 +21,8 @@ $black: #2b2523
 html, body
   color: $manczi-blue-text-small !important
   font-family: 'Josefin Sans', sans-serif !important
-  width: 100vw
+  width: 100%
+  overflow-x: hidden
 
 .manczi
   font-family: 'Manczi'
@@ -31,6 +32,16 @@ html, body
   text-align: center
   position: relative
   top: -10px
+
+.except-mobile
+  display: none
+  @media only screen and (min-width: 1088px)
+    display: block
+
+.only-mobile
+  display: block
+  @media only screen and (min-width: 1088px)
+    display: none
 
 .navbar
   background-color: transparent !important
