@@ -10,6 +10,12 @@ import Combing from '../../img/combing.png'
 import Trimming from '../../img/trimming.png'
 import Exhibitions from '../../img/exhibitions.png'
 import Coloring from '../../img/coloring.png'
+import ClippingText from '../../img/clipping-text.png'
+import DrippingText from '../../img/dripping-text.png'
+import CombingText from '../../img/combing-text.png'
+import TrimmingText from '../../img/trimming-text.png'
+import ExhibitionsText from '../../img/exhibitions-text.png'
+import ColoringText from '../../img/coloring-text.png'
 
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
@@ -33,33 +39,39 @@ const ArrowContainer = styled.div`
 const Service = styled.div`
   position: relative;
   border-radius: 50%;
-  width: 185px;
-  height: 185px;
+  width: 250px;
+  height: 250px;
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 99;
+  &:hover .text {
+    transform: rotate(-360deg);
+  }
   &:hover .front {
-    transform: rotateY(180deg);
+    transform: rotate(360deg);
   }
   &:hover .back {
-    transform: rotateY(0deg);
+    transform: rotate(0deg);
   }
+`
+const ServiceText = styled.div`
+  position: relative;
+  width: 245px;
+  height: 245px;
+  border-radius: 50%;
 `
 
 const ServiceFront = styled.div`
   position: absolute;
-  height: 185px;
-  width: 185px;
-  backface-visibility: hidden;
+  height: 175px;
+  width: 175px;
   border-radius: 50%;
   box-sizing: border-box;
   border: 4px solid #009999;
   transition: all .4s;
   /* transition-timing-function: cubic-bezier(.175, .885, .32, 1.275); */
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  transform-style: preserve-3d;
-  perspective: 1000px;
 `
 
 const ServiceBack = styled.div`
@@ -84,9 +96,10 @@ const ServiceBack = styled.div`
 `
 
 const Img = styled.img`
-  width: 185px;
-  height: 185px;
-  position: relative;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transition: all .4s;
 `
 
 const ServiceWrapper = styled.div`
@@ -94,7 +107,7 @@ const ServiceWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 20px;
+  margin: 0px 20px;
 `
 
 const ServiceName = styled.div`
@@ -170,75 +183,74 @@ export default class OfferIndexPage extends React.Component {
                 <div className="column is-10" style={{zIndex: 100, backgroundColor: 'white'}}>
                   <div className="columns is-tablet" style={{padding: '0px 20px', transition: 'transform .5s ease-in-out', transform: `translateX(${this.state.positionX}%)`}}>
                     <div className="column is-4">
-                      <span>Strzyżenie</span>
                       <ServiceWrapper>
                         <Service>
+                          <ServiceText>
+                            <Img className="text" src={ClippingText} alt="Clipping" />
+                          </ServiceText>
                           <ServiceFront className="front">
                             <Img src={Clipping} alt="Clipping" style={{top: -6, left: -6}}/>
                           </ServiceFront>
-                          <ServiceBack className="back">
-                            Strzyżenie
-                          </ServiceBack>
                         </Service>
                       </ServiceWrapper>
                     </div>
                     <div className="column is-4">
                       <ServiceWrapper>
                         <Service>
+                          <ServiceText>
+                            <Img className="text" src={DrippingText} alt="Clipping" />
+                          </ServiceText>
                           <ServiceFront className="front">
-                            <Img src={Dripping} alt="Dripping" style={{top: -5}} />
+                            <Img src={Dripping} alt="Dripping" style={{top: -6, left: 0}}/>
                           </ServiceFront>
-                          <ServiceBack className="back">
-                            Kąpanie
-                          </ServiceBack>
                         </Service>
                       </ServiceWrapper>
                     </div>
                     <div className="column is-4">
                       <ServiceWrapper>
                         <Service>
+                          <ServiceText>
+                            <Img className="text" src={CombingText} alt="Combing" />
+                          </ServiceText>
                           <ServiceFront className="front">
-                            <Img src={Combing} alt="Combing" style={{top: -5}} />
+                            <Img src={Combing} alt="Combing" style={{top: -3, left: -3}}/>
                           </ServiceFront>
-                          <ServiceBack className="back">
-                            Wyczesywanie
-                          </ServiceBack>
                         </Service>
                       </ServiceWrapper>
                     </div>
                     <div className="column is-4">
                       <ServiceWrapper>
                         <Service>
+                          <ServiceText>
+                            <Img className="text" src={TrimmingText} alt="Trimming" />
+                          </ServiceText>
                           <ServiceFront className="front">
-                            <Img src={Trimming} alt="Trimming" />
+                            <Img src={Trimming} alt="Trimming" style={{top: -2, left: -6}}/>
                           </ServiceFront>
-                          <ServiceBack className="back">
-                            Trymowanie
-                          </ServiceBack>
                         </Service>
                       </ServiceWrapper>
                     </div>
                     <div className="column is-4">
                       <ServiceWrapper>
                         <Service>
+                          <ServiceText>
+                            <Img className="text" src={ExhibitionsText} alt="Exhibitions" />
+                          </ServiceText>
                           <ServiceFront className="front">
-                            <Img src={Exhibitions} alt="Preparing for exhibitions" style={{top: -11}} />
+                            <Img src={Exhibitions} alt="Exhibitions" style={{top: -8, left: 0}}/>
                           </ServiceFront>
-                          <ServiceBack className="back">
-                            Przygotowanie do wystaw
-                          </ServiceBack>
                         </Service>
                       </ServiceWrapper>
                     </div>
                     <div className="column is-4">
                       <ServiceWrapper>
                         <Service>
+                          <ServiceText>
+                            <Img className="text" src={ColoringText} alt="Coloring" />
+                          </ServiceText>
                           <ServiceFront className="front">
-                            <Img src={Coloring} alt="Coloring" style={{top: -11, left: -5}}/>
+                            <Img src={Coloring} alt="Coloring" style={{top: -6, left: -6}}/>
                           </ServiceFront>
-                          <ServiceBack className="back">
-                            Farbowanie
-                          </ServiceBack>
                         </Service>
                       </ServiceWrapper>
                     </div>

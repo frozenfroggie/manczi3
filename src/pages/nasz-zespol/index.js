@@ -157,7 +157,7 @@ export default class OurTeamIndexPage extends React.Component {
             <StripTitle>
               <EmployeeName>
                 <div><span>g</span>rażyna</div>
-                <EmployeeNameSurname positionLeft={200}>babińska</EmployeeNameSurname>
+                <EmployeeNameSurname positionLeft={185}>babińska</EmployeeNameSurname>
               </EmployeeName>
             </StripTitle>
             <StripImage>
