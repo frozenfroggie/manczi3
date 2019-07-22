@@ -1,4 +1,5 @@
 import React from 'react'
+import styled from "styled-components"
 
 import OfferWallpaper from '../../img/offerWallpaper.jpg'
 import Layout from '../../components/Layout'
@@ -6,6 +7,7 @@ import Layout from '../../components/Layout'
 export default class AboutUsIndexPage extends React.Component {
   render() {
     return (
+
       <Layout>
         <div
           className="full-width-image-container margin-top-0"

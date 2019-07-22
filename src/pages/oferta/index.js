@@ -170,6 +170,7 @@ export default class OfferIndexPage extends React.Component {
                 <div className="column is-10" style={{zIndex: 100, backgroundColor: 'white'}}>
                   <div className="columns is-tablet" style={{padding: '0px 20px', transition: 'transform .5s ease-in-out', transform: `translateX(${this.state.positionX}%)`}}>
                     <div className="column is-4">
+                      <span>Strzyżenie</span>
                       <ServiceWrapper>
                         <Service>
                           <ServiceFront className="front">
