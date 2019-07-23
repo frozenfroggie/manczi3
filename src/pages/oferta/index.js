@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from "styled-components"
+import styled, { keyframes } from "styled-components"
 
 import Layout from '../../components/Layout'
 import OfferWallpaper from '../../img/offerWallpaper.jpg'
@@ -19,6 +19,30 @@ import ColoringText from '../../img/coloring-text.png'
 
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
+const moveLeft = keyframes`
+  0% {
+    transform: translateX(0px);
+  }
+  50% {
+    transform: translateX(-5px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+`;
+
+const moveRight = keyframes`
+  0% {
+    transform: translateX(0px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+`;
+
 const ArrowContainer = styled.div`
   width: auto;
   height: 100%;
@@ -29,11 +53,19 @@ const ArrowContainer = styled.div`
   background-color: white;
   &:hover {
     cursor: pointer;
+    animation-play-state: paused;
   }
   @media only screen and (min-width: 769px) {
     display: flex;
   }
+`
 
+const ArrowContainerLeft = styled(ArrowContainer)`
+  animation: ${moveLeft} 1s linear infinite;
+`
+
+const ArrowContainerRight = styled(ArrowContainer)`
+  animation: ${moveRight} 1s linear infinite;
 `
 
 const Service = styled.div`
@@ -49,7 +81,8 @@ const Service = styled.div`
     transform: rotate(-360deg);
   }
   &:hover .front {
-    transform: rotate(360deg);
+    transform: rotate(360deg) translateY(-7px);
+    transition-delay: .3s;
   }
   &:hover .back {
     transform: rotate(0deg);
@@ -76,8 +109,8 @@ const ServiceFront = styled.div`
 
 const ServiceBack = styled.div`
   position: absolute;
-  height: calc(99% + 4px);
-  width: calc(99% + 4px);
+  height: calc(100% + 4px);
+  width: calc(100% + 4px);
   background-color: #009999;
   backface-visibility: hidden;
   transform: rotateY(180deg);
@@ -86,8 +119,8 @@ const ServiceBack = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.6em;
-  padding: 25px;
+  font-size: 1em;
+  padding: 22px;
   transition: all .4s;
   /* transition-timing-function: cubic-bezier(.175, .885, .32, 1.275); */
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
@@ -176,9 +209,9 @@ export default class OfferIndexPage extends React.Component {
             <div className="content">
               <div className="columns" style={{margin: 0}}>
                 <div className="column is-1" style={{backgroundColor: 'white', zIndex: 101}}>
-                  <ArrowContainer onClick={this.previous}>
-                    <FaChevronLeft size="4em" alt="Left" style={{top: -6, left: -6}} />
-                  </ArrowContainer>
+                  <ArrowContainerLeft onClick={this.previous}>
+                    <FaChevronLeft size="4em" alt="Left" style={{position: 'relative', left: 15}} color="#ED1B68" />
+                  </ArrowContainerLeft>
                 </div>
                 <div className="column is-10" style={{zIndex: 100, backgroundColor: 'white'}}>
                   <div className="columns is-tablet" style={{padding: '0px 20px', transition: 'transform .5s ease-in-out', transform: `translateX(${this.state.positionX}%)`}}>
@@ -191,6 +224,9 @@ export default class OfferIndexPage extends React.Component {
                           <ServiceFront className="front">
                             <Img src={Clipping} alt="Clipping" style={{top: -6, left: -6}}/>
                           </ServiceFront>
+                          <ServiceBack className="front">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus varius condimentum nisl, a tristique magna placerat sed
+                          </ServiceBack>
                         </Service>
                       </ServiceWrapper>
                     </div>
@@ -203,6 +239,9 @@ export default class OfferIndexPage extends React.Component {
                           <ServiceFront className="front">
                             <Img src={Dripping} alt="Dripping" style={{top: -6, left: 0}}/>
                           </ServiceFront>
+                          <ServiceBack className="front">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus varius condimentum nisl, a tristique magna placerat sed
+                          </ServiceBack>
                         </Service>
                       </ServiceWrapper>
                     </div>
@@ -215,6 +254,9 @@ export default class OfferIndexPage extends React.Component {
                           <ServiceFront className="front">
                             <Img src={Combing} alt="Combing" style={{top: -3, left: -3}}/>
                           </ServiceFront>
+                          <ServiceBack className="front">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus varius condimentum nisl, a tristique magna placerat sed
+                          </ServiceBack>
                         </Service>
                       </ServiceWrapper>
                     </div>
@@ -227,6 +269,9 @@ export default class OfferIndexPage extends React.Component {
                           <ServiceFront className="front">
                             <Img src={Trimming} alt="Trimming" style={{top: -2, left: -6}}/>
                           </ServiceFront>
+                          <ServiceBack className="front">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus varius condimentum nisl, a tristique magna placerat sed
+                          </ServiceBack>
                         </Service>
                       </ServiceWrapper>
                     </div>
@@ -239,6 +284,9 @@ export default class OfferIndexPage extends React.Component {
                           <ServiceFront className="front">
                             <Img src={Exhibitions} alt="Exhibitions" style={{top: -8, left: 0}}/>
                           </ServiceFront>
+                          <ServiceBack className="front">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus varius condimentum nisl, a tristique magna placerat sed
+                          </ServiceBack>
                         </Service>
                       </ServiceWrapper>
                     </div>
@@ -251,15 +299,18 @@ export default class OfferIndexPage extends React.Component {
                           <ServiceFront className="front">
                             <Img src={Coloring} alt="Coloring" style={{top: -6, left: -6}}/>
                           </ServiceFront>
+                          <ServiceBack className="front">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus varius condimentum nisl, a tristique magna placerat sed
+                          </ServiceBack>
                         </Service>
                       </ServiceWrapper>
                     </div>
                   </div>
                 </div>
                 <div className="column is-1" style={{backgroundColor: 'white', zIndex: 101}}>
-                  <ArrowContainer onClick={this.next} style={{right: 0}}>
-                    <FaChevronRight size="4em" alt="Right" style={{top: -6, left: -6}} />
-                  </ArrowContainer>
+                  <ArrowContainerRight onClick={this.next} style={{right: 0}}>
+                    <FaChevronRight size="4em" alt="Right" color="#ED1B68" style={{position: 'relative', left: -15}} />
+                  </ArrowContainerRight>
                 </div>
               </div>
             </div>

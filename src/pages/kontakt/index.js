@@ -101,7 +101,7 @@ export default class Index extends React.Component {
                   </div>
                 </div>
                 <div className="field">
-                  <button className="btn" type="submit">
+                  <button className="btn-blue" type="submit">
                     Wyślij
                   </button>
                 </div>

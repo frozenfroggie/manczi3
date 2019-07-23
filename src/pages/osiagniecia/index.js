@@ -25,7 +25,7 @@ export default class AboutUsIndexPage extends React.Component {
             alignItems: 'flex-end'
           }}>
             <h2 className="has-text-weight-bold is-size-1">
-              O nas
+              Osiągnięcia
             </h2>
           </div>
         </div>
