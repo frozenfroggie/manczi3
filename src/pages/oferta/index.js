@@ -84,9 +84,6 @@ const Service = styled.div`
     transform: rotate(360deg) translateY(-7px);
     transition-delay: .3s;
   }
-  &:hover .back {
-    transform: rotate(0deg);
-  }
 `
 const ServiceText = styled.div`
   position: relative;
@@ -214,7 +211,7 @@ export default class OfferIndexPage extends React.Component {
                   </ArrowContainerLeft>
                 </div>
                 <div className="column is-10" style={{zIndex: 100, backgroundColor: 'white'}}>
-                  <div className="columns is-tablet" style={{padding: '0px 20px', transition: 'transform .5s ease-in-out', transform: `translateX(${this.state.positionX}%)`}}>
+                  <div className="columns is-tablet is-12" style={{padding: '0px 20px', transition: 'transform .5s ease-in-out', transform: `translateX(calc(${this.state.positionX}% - ${40 * (this.state.positionX % 3)}px))`}}>
                     <div className="column is-4">
                       <ServiceWrapper>
                         <Service>
