@@ -26,12 +26,11 @@ html, body
 
 .manczi
   font-family: 'Manczi'
-  font-size: 5em
+  font-size: 5.5em
   color: $manczi-blue
   font-weight: bold
   text-align: center
   position: relative
-  top: -10px
 
 .except-mobile
   display: none
@@ -437,27 +436,25 @@ a.has-text-primary:hover, a.has-text-primary:focus
 
 .folder
   position: relative
-  width: 150px
-  height: 100px
+  width: 200px
+  height: 200px
   display: flex
   justify-content: center
   align-items: center
   transition: transform .2s
   margin-bottom: 80px
+  margin-top: 20px
   top: 10px
   @media only screen and (min-width: 1088px)
-    top: 50px
+    top: 60px
   .folder-image
     transition: transform .2s
-  &:hover
-    cursor: pointer
-    transform: scale(1.05)
-  &:hover > .folder-image:nth-child(2)
-    transform: rotate(20deg)
-    left: 10px
-  &:hover > .folder-image:nth-child(3)
-    transform: rotate(-10deg)
-    left: 40px
+  &:hover .title-image
+    transform: rotate(360deg)
+  &:hover .camera
+    transition: all .1s linear
+    top: -30px
+    right: -60px
 
   .title
     position: absolute
@@ -466,18 +463,28 @@ a.has-text-primary:hover, a.has-text-primary:focus
     // color: #330000 !important
     text-align: center
   .camera
-    z-index: 5
-    position: absolute
-    left: 27px
-    bottom: 7px
     color: white
+    position: relative
+    right: -50px
+    top: -50px
+    transition: all .1s .3s linear
+
   .folder-image
     position: absolute
-    width: 100px
-    max-height: 125%
+    width: 170px
+    height: auto
+    background-size: contain
+    background-repeat: no-repeat
+  .title-image
+    transition: all .4s linear
+    position: relative
+    width: 200px
+    height: auto
     background-size: contain
     background-repeat: no-repeat
     border: 2px solid white
+    left: 0px
+    top: 0px
   .folder-image:first-child
     bottom: 0px
     left: 20px
@@ -503,3 +510,9 @@ a.has-text-primary:hover, a.has-text-primary:focus
   border-radius: 2px
   &:hover
     cursor: pointer
+
+.input
+  min-height: 60px
+
+.textarea
+  min-height: 200px

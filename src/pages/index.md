@@ -5,8 +5,6 @@ image: /img/home-jumbotron.jpg
 imageMobile: /img/home-jumbotron-mobile.jpg
 heading: Great coffee with a conscience
 subheading: na jaki zasługuje!
-mainpitch:
-  title: Z prawdziwą przyjemnością zapraszam Państwa do salonu pielęgnacji psów i kotów
 main:
   heading: Great coffee with no compromises
   description: >

@@ -106,6 +106,20 @@ query GalleryPageByID($id: String!) {
       html
       frontmatter {
         title
+        iconImage {
+          childImageSharp {
+            fluid(maxWidth: 200, quality: 64) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        titleImage {
+          childImageSharp {
+            fluid(maxWidth: 200, quality: 64) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
         galleryImages {
           image {
             childImageSharp {

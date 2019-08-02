@@ -27,7 +27,7 @@ class GalleryIndexPage extends React.Component {
     const { edges: posts } = this.props.data.allMarkdownRemark
     return (
         <Layout>
-            <section className="section section-main section-gallery" >
+            <section className="section section-main section-gallery" style={{minHeight: '100vh'}}>
               <div className="container">
                 <div className="content">
                   <GalleryRoll
@@ -60,6 +60,20 @@ export default props => (
             }
             frontmatter {
               title
+              iconImage {
+                childImageSharp {
+                  fluid(maxWidth: 1000, quality: 64) {
+                    ...GatsbyImageSharpFluid
+                  }
+                }
+              }
+              titleImage {
+                childImageSharp {
+                  fluid(maxWidth: 1000, quality: 64) {
+                    ...GatsbyImageSharpFluid
+                  }
+                }
+              }
               galleryImages {
                 image {
                   childImageSharp {

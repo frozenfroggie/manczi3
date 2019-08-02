@@ -4,7 +4,6 @@ import { Link, graphql } from 'gatsby'
 import styled from "styled-components"
 
 import Layout from '../components/Layout'
-import Features from '../components/Features'
 import BlogRoll from '../components/BlogRoll'
 
 const BackgroundWallpaper = styled.div`
@@ -123,21 +122,35 @@ export const IndexPageTemplate = ({
               <div className="column is-10 is-offset-1">
                 <div className="content">
                   <div className="content" style={{display: 'flex', alignItems: 'center', flexDirection: 'column'}}>
-                    <div className="tile" style={{width: '80%', textAlign: 'center'}}>
-                      <h3 className="subtitle" style={{color: '#009999', fontWeight: '400', marginTop: 50}}>
-                        {mainpitch.title}
+                    <div className="tile" style={{width: '100%', textAlign: 'center', display: 'flex', justifyContent: 'center'}}>
+                      <h3 className="subtitle" style={{fontSize: '2em', textAlign: 'center', color: '#009999', fontWeight: '300', marginTop: 40, marginBottom: 50, lineHeight: 1.6}}>
+                        Salon pielęgnacji psów Manczi <br/>
+                        <span style={{fontWeight: 600}}>kompleksowa kosmetyka</span> Twojego psa
                       </h3>
                     </div>
-                    <div className="manczi">
-                      manczi
+                    <div style={{marginBottom: 50, textAlign: 'justify', lineHeight: '1.6em'}}>
+                      <p style={{textAlign: 'justify'}}>
+                        Wygląd Twojego psa jest naszą pasją! Sprawimy, że będzie zachwycał piękną fryzurą.<br/><br/>
+                        Nie radzisz sobie z sierścią pupila i przeszkadza Ci błoto wnoszone przez czworonoga?<br/>
+                        Na to również znajdziemy rozwiązanie!<br/><br/>
+                        Zapraszamy serdecznie do zapoznania się z ofertą, osiągnięciami oraz naszymi pracami.<br/>
+                        Do zobaczenia :)
+                      </p>
                     </div>
-                    <div style={{marginBottom: 50}}>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus enim massa, iaculis at porttitor vel, semper id tortor. Fusce vehicula, arcu quis aliquet auctor, urna augue fringilla turpis, in convallis nisl elit at tellus. Cras vel lectus ornare, pretium mauris a, dapibus tellus. Sed a leo facilisis, cursus turpis vitae, blandit enim. In pretium vulputate nibh, ut venenatis eros gravida eget. Nulla facilisi. Donec eget libero nec quam feugiat efficitur non quis sem. Nulla sagittis, nisi ut commodo euismod, magna sapien vehicula enim, vitae vestibulum risus ipsum vel lectus. Donec leo enim, semper sed iaculis ac, molestie eu mauris. Duis non tempus velit, quis dictum dui. Mauris vel malesuada velit. Fusce dolor quam, blandit vitae est non, congue maximus urna.
-                    </div>
-                    <div className="columns">
-                      <div className="column is-12 has-text-centered">
-                        <Link className="btn-blue" to="/products">
-                          Pokaż więcej
+                    <div className="columns is-12">
+                      <div className="column is-4 has-text-centered">
+                        <Link style={{minWidth: 195}} className="btn-pink" to="/products">
+                          Umów wizytę
+                        </Link>
+                      </div>
+                      <div className="column is-4 has-text-centered">
+                        <Link style={{minWidth: 195}} className="btn-blue" to="/products">
+                          Pokaż ofertę
+                        </Link>
+                      </div>
+                      <div className="column is-4 has-text-centered">
+                        <Link style={{minWidth: 195}} className="btn-blue" to="/products">
+                          Zobacz galerię
                         </Link>
                       </div>
                     </div>
@@ -220,9 +233,6 @@ export const pageQuery = graphql`
         }
         heading
         subheading
-        mainpitch {
-          title
-        }
       }
     }
   }

@@ -1,6 +1,8 @@
 ---
 templateKey: gallery-page
-title: Szczenięta
+title: Yorkshire Terrier
+iconImage: /img/2a.png
+titleImage:  /img/2b.png
 galleryImages:
   - image: /img/20190421_110636.jpg
     description: test
