@@ -14,4 +14,6 @@ collections:
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "gallery-page"}
       - {label: "Nazwa folderu", name: "title", widget: "string"}
+      - {label: "Ikona folderu", name: "iconImage", widget: image}
+      - {label: "Napis folderu", name: "titleImage", widget: image}
       - {label: "Zdjęcia", name: "galleryImages", widget: list,  fields: [{label: Image, name: image, widget: image}, {required: false, default: "", label: "Podpis", name: "description", widget: string}]}
