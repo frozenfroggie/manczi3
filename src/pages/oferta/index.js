@@ -17,7 +17,7 @@ import TrimmingText from '../../img/trimming-text.png'
 import ExhibitionsText from '../../img/exhibitions-text.png'
 import ColoringText from '../../img/coloring-text.png'
 
-import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import { FaInfo, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
 const moveLeft = keyframes`
   0% {
@@ -146,6 +146,19 @@ const ServiceName = styled.div`
   text-align: center;
 `
 
+const LinkStyled = styled.a`
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 25px;
+`
+
 export default class OfferIndexPage extends React.Component {
   constructor(props) {
     super(props);
@@ -231,13 +244,19 @@ export default class OfferIndexPage extends React.Component {
                       <ServiceWrapper>
                         <Service>
                           <ServiceText>
-                            <Img className="text" src={DrippingText} alt="Clipping" />
+                            <Img className="text" src={DrippingText} alt="Dripping" />
                           </ServiceText>
-                          <ServiceFront className="front">
-                            <Img src={Dripping} alt="Dripping" style={{top: -6, left: 0}}/>
+                          <ServiceFront className="front" style={{borderColor: '#ED1B68'}}>
+                            <LinkStyled href="/oferta/kapiel" style={{color: 'white'}}>
+                              <Img src={Dripping} alt="Dripping" style={{top: -6, left: 0}}/>
+                            </LinkStyled>
                           </ServiceFront>
-                          <ServiceBack className="front">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus varius condimentum nisl, a tristique magna placerat sed
+                          <ServiceBack className="front" style={{backgroundColor: '#ED1B68', color: 'white'}}>
+                            <LinkStyled href="/oferta/kapiel" style={{color: 'white'}}>
+                              Kąpiel to podstawowa usługa jaką można wykonać w naszym Salonie.
+                              <br/><br/>
+                              <div><FaInfo/> Kliknij aby dowiedzieć się więcej!</div>
+                            </LinkStyled>
                           </ServiceBack>
                         </Service>
                       </ServiceWrapper>
