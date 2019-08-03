@@ -125,7 +125,7 @@ export const IndexPageTemplate = ({
                     <div className="tile" style={{width: '100%', textAlign: 'center', display: 'flex', justifyContent: 'center'}}>
                       <h3 className="subtitle" style={{fontSize: '2em', textAlign: 'center', color: '#009999', fontWeight: '300', marginTop: 40, marginBottom: 50, lineHeight: 1.6}}>
                         Salon pielęgnacji psów Manczi <br/>
-                        <span style={{fontWeight: 600}}>kompleksowa kosmetyka</span> Twojego psa
+                        to <span style={{fontWeight: 600}}>kompleksowa kosmetyka</span> Twojego psa
                       </h3>
                     </div>
                     <div style={{marginBottom: 50, textAlign: 'justify', lineHeight: '1.6em'}}>

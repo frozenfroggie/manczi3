@@ -99,7 +99,7 @@ const GalleryFolder = props => {
             <Img className="text" src={props.titleImage.childImageSharp.fluid.src} alt="Clipping" />
           </FolderText>
           <FolderFront className="front">
-            <Img src={props.iconImage.childImageSharp.fluid.src} alt="Clipping" style={{top: 0, left: 0}}/>
+            <Img src={props.iconImage.childImageSharp.fluid.src} alt="Clipping" style={{top: -15, left: 0, width: '120%', height: '120%'}}/>
           </FolderFront>
           <FolderBack className="front">
             <div className="is-size-5" style={{color: "white", display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column'}}>
