@@ -414,17 +414,17 @@ a.has-text-primary:hover, a.has-text-primary:focus
       display: flex
       justify-content: center
       align-items: center
-      height: 99%
+      height: calc(100% - 8px)
       width: 50px
-      background-color: black
-      opacity: 0.3
+      background-color: $manczi-blue
+      opacity: 0.6
       transition: opacity .2s
       border: none
       &:hover
         cursor: pointer
-        opacity: 0.5
+        opacity: 0.8
         .gallery-button
-          color: rgba(250,250,250,0.9)
+          color: rgba(250,250,250,0.95)
       .gallery-button
         background-color: transparent
         border: none
@@ -503,7 +503,7 @@ a.has-text-primary:hover, a.has-text-primary:focus
 .gallery-folder-image
   width: 100%
   min-width: 200px
-  min-height: 200px
+  min-height: 220px
   background-repeat: no-repeat
   background-size: cover
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)

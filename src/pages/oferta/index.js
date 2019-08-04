@@ -123,6 +123,9 @@ const ServiceBack = styled.div`
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   transform-style: preserve-3d;
   perspective: 1000px;
+  &:hover {
+    cursor: pointer
+  }
 `
 
 const Img = styled.img`
@@ -163,7 +166,8 @@ export default class OfferIndexPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      positionX: 0
+      positionX: 0,
+      currentOffer: ''
     }
   }
   previous = () => {
@@ -188,29 +192,37 @@ export default class OfferIndexPage extends React.Component {
       }))
     }
   }
+  openOffer = (offer) => {
+    this.setState({
+      currentOffer: offer
+    })
+  }
   render() {
     return (
       <Layout>
-        <div
-          className="full-width-image-container margin-top-0"
-          style={{
-            backgroundImage: `url(${OfferWallpaper})`
-          }}>
-          <div style={{
-            background: 'linear-gradient(to top right, #009999, 10%, transparent, 90%, #ED1B68)',
-            color: '#fff',
-            padding: '2rem 6rem',
-            width: '100%',
-            height: '100%',
-            display: 'flex',
-            justifyContent: 'flex-start',
-            alignItems: 'flex-end'
-          }}>
-            <h2 className="has-text-weight-bold is-size-1 except-mobile">
-              Nasze usługi
-            </h2>
+        {
+          this.state.currentOffer === '' &&
+          <div
+            className="full-width-image-container margin-top-0"
+            style={{
+              backgroundImage: `url(${OfferWallpaper})`
+            }}>
+            <div style={{
+              background: 'linear-gradient(to top right, #009999, 10%, transparent, 90%, #ED1B68)',
+              color: '#fff',
+              padding: '2rem 6rem',
+              width: '100%',
+              height: '100%',
+              display: 'flex',
+              justifyContent: 'flex-start',
+              alignItems: 'flex-end'
+            }}>
+              <h2 className="has-text-weight-bold is-size-1 except-mobile">
+                Nasze usługi
+              </h2>
+            </div>
           </div>
-        </div>
+        }
         <section className="section" style={{padding: 0, height: '100%'}}>
           <h2 className="has-text-weight-bold is-size-1 only-mobile" style={{marginTop: 50, textAlign: 'center', color: '#ED1B68'}}>
             Nasze usługi
@@ -226,7 +238,7 @@ export default class OfferIndexPage extends React.Component {
                 <div className="column is-10" style={{zIndex: 100, backgroundColor: 'white'}}>
                   <div className="columns is-tablet is-12" style={{padding: '0px 20px', transition: 'transform .5s ease-in-out', transform: `translateX(calc(${this.state.positionX}% - ${40 * (this.state.positionX % 3)}px))`}}>
                     <div className="column is-4">
-                      <ServiceWrapper>
+                      <ServiceWrapper onClick={() => this.openOffer('clipping')}>
                         <Service>
                           <ServiceText>
                             <Img className="text" src={ClippingText} alt="Clipping" />
@@ -235,34 +247,29 @@ export default class OfferIndexPage extends React.Component {
                             <Img src={Clipping} alt="Clipping" style={{top: -6, left: -6}}/>
                           </ServiceFront>
                           <ServiceBack className="front">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus varius condimentum nisl, a tristique magna placerat sed
-                          </ServiceBack>
+                          <FaInfo size="2em" style={{margin: 15}} />
+                          <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', textAlign: 'center'}}>Kliknij aby dowiedzieć <br/> się więcej!</div>                          </ServiceBack>
                         </Service>
                       </ServiceWrapper>
                     </div>
                     <div className="column is-4">
-                      <ServiceWrapper>
+                      <ServiceWrapper onClick={() => this.openOffer('dripping')}>
                         <Service>
                           <ServiceText>
                             <Img className="text" src={DrippingText} alt="Dripping" />
                           </ServiceText>
-                          <ServiceFront className="front" style={{borderColor: '#ED1B68'}}>
-                            <LinkStyled href="/oferta/kapiel" style={{color: 'white'}}>
-                              <Img src={Dripping} alt="Dripping" style={{top: -6, left: 0}}/>
-                            </LinkStyled>
+                          <ServiceFront className="front">
+                            <Img src={Dripping} alt="Dripping" style={{top: -6, left: 0}}/>
                           </ServiceFront>
-                          <ServiceBack className="front" style={{backgroundColor: '#ED1B68', color: 'white'}}>
-                            <LinkStyled href="/oferta/kapiel" style={{color: 'white'}}>
-                              Kąpiel to podstawowa usługa jaką można wykonać w naszym Salonie.
-                              <br/><br/>
-                              <div><FaInfo/> Kliknij aby dowiedzieć się więcej!</div>
-                            </LinkStyled>
+                          <ServiceBack className="front" style={{display: 'flex', flexDirection: 'column'}}>
+                            <FaInfo size="2em" style={{margin: 15}} />
+                            <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', textAlign: 'center'}}>Kliknij aby dowiedzieć <br/> się więcej!</div>
                           </ServiceBack>
                         </Service>
                       </ServiceWrapper>
                     </div>
                     <div className="column is-4">
-                      <ServiceWrapper>
+                      <ServiceWrapper onClick={() => this.openOffer('combing')}>
                         <Service>
                           <ServiceText>
                             <Img className="text" src={CombingText} alt="Combing" />
@@ -271,7 +278,8 @@ export default class OfferIndexPage extends React.Component {
                             <Img src={Combing} alt="Combing" style={{top: -3, left: -3}}/>
                           </ServiceFront>
                           <ServiceBack className="front">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus varius condimentum nisl, a tristique magna placerat sed
+                            <FaInfo size="2em" style={{margin: 15}} />
+                            <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', textAlign: 'center'}}>Kliknij aby dowiedzieć <br/> się więcej!</div>
                           </ServiceBack>
                         </Service>
                       </ServiceWrapper>
@@ -330,6 +338,100 @@ export default class OfferIndexPage extends React.Component {
                 </div>
               </div>
             </div>
+          </div>
+        </section>
+        <section className="section">
+          <div className="container">
+          {
+            this.state.currentOffer === 'dripping' &&
+              <div className="content" style={{padding: '30px 150px'}}>
+                  <p>
+                    <h3 className="is-2">Kąpiel</h3>
+                    <br/>
+                    Kąpiel to podstawowa usługa jaką można wykonać w naszym Salonie.
+                    W zależności od struktury włosa, jego kondycji oraz oczekiwanego efektu dobieramy rodzaj
+                    kosmetyków, jakie zastosujemy do pielęgnacji Twojego pupila.<br/>
+                    Pracujemy na kosmetykach renomowanych firm przeznaczonych dla psów:<br/>
+                    m.in. K9, Botaniqa, Diamex, PSH, Double K.<br/>
+                    <br/>
+                    Wyróżniamy m.in. kąpiele nawilżające, odżywcze, nabłyszczające, lecznicze, pomagające pozbyć się podszerstka.<br/>
+                    <br/>
+                    Usługa kąpieli psa zawiera:<br/>
+                    • ocenę struktury i stanu szaty oraz skóry<br/>
+                    • dobranie odpowiednich kosmetyków w celu uzyskania oczekiwanego efektu<br/>
+                    • kąpiel psa w szamponie dogłąbnie myjącym, by pozbyć się brudu z sierści<br/>
+                    • kąpiel funkcyjnia z zastosowaniem kosmetyku pielęgnacyjnego<br/>
+                    • wysuszenie z modelowaniem szaty<br/>
+                    • czyszczenie uszu oraz oczu jeżeli jest to konieczne<br/>
+                    • przycięcie pazurów<br/>
+                    <br/>
+                    Usługa samej kąpieli jest możliwa tylko w przypadku ras nieliniejących oraz psów nieskołtunionych<br/>
+                  </p>
+                  <br/>
+                  <br/>
+                  <p>
+                    <h3 className="is-2">Kąpiel z kosmetyką</h3><br/>
+                    Kąpiel z kosmetyką to propozycja skierowana do właścicieli ras nieliniejących, piesków z szatą długą<br/>
+                    (typu maltańczyk, york, bichon, itp.).<br/>
+                    <br/>
+                    Jest to rozszerzona usługa kąpieli. Zawiera dodatkowo:<br/>
+                    • podcięcie okolic oczu, odbytu oraz miejsc intymnych<br/>
+                    • wycięcie włosów między poduszkami<br/>
+                    • przeczesanie szaty<br/>
+                    <br/>
+                    Oferta ta skierowana jest do właścicieli, którzy pragną by ich pupil miał zapewniony maksymalny komfort oraz cały czas wyglądał dobrze pomiędzy strzyżeniami.<br/>
+                  </p>
+                  <p>
+                    <br/>
+                    <h3 className="is-2">Kąpiele lecznicze</h3>
+                    <br/>
+                    W ofercie posiadamy kąpiele lecznicze z użyciem innowacyjnego, japońskiego systemu Nagayu.<br/><br/>
+                    <h4 className="is-3">Pozbycie się nieprzyjemnego zapachu oraz poprawa kondycji sierści</h4>
+                    System Nagayu CO2 działa dużo wydajniej niż standardowa kąpiel środkami do pielęgnacji. Dzięki działaniu
+                    jonów wodorowęglanowych oraz jonów wodorowych doskonale radzi sobie ze zmyciem odpadów mineralnych
+                    oraz brudu zatkanego w cebulce włosa.<br/>
+                    <br/>
+                    <h4 className="is-3">Pielęgnacja i wzmocnienie skóry</h4>
+                    Kąpiele przy użyciu systemu Nagayu przyspieszają proces gojenia, zwększjąc przepływ krwi, umożliwiając komórkom wchłanianie większej ilości składników odżywczych oraz tlenu w procesie regeneracji komórek. Aby
+                    unikąc przesuszenia w wyniku głebokiego czyszczenia skóry, do tabletek Nagayu dodano suplement nawilżający.<br/>
+                    <br/>
+                    <h4 className="is-3">Jak to działa?</h4>
+                    Tabletki Nagayu wydzielają miliony cząsteczek kwasu węglowego oraz jonów wodorowych zmieniając wodę
+                    w system SPA z CO2. Cząsteczki dwutlenku węgla przedostają się do naczyń krwionośnych i powodują ich rozszerzenie i zwiększenie przepływu krwi. W ten sposób komórki otrzymują więcej składników odżywczych i tlenu,
+                    co przyspiesza metabolizm i przyspiesza proces gojenia.<br/>
+                    <br/>
+                    By zapoznać się z efektami leczenia sytemem Nagayu zapraszam na stronę producenta:<br/>
+                    <br/>
+                    <h4 className="is-3"><a href="https://www.nagayu.com/" target="_blank">https://www.nagayu.com/</a></h4>
+                    Usługa kąpieli leczniczej z zastosowaniem systemu Nagayu zawiera:<br/>
+                    • ocenę stanu skóry oraz sierści<br/>
+                    • dobranie odpowiedniej dawki tabletek Nagayu SPA CO2<br/>
+                    • kąpiel oczyszczająca w szamponie dogłębnie myjącym<br/>
+                    • kąpiel funkcyjna w szamponie leczniczym<br/>
+                    • kąpiel z zastosowaniem systemu Nagayu SPA CO2<br/>
+                    • suszenie<br/>
+                    • czyszczenie oczu oraz uszu jeżeli to konieczne<br/>
+                  </p>
+                </div>
+              }
+          {
+            this.state.currentOffer === 'clipping' &&
+              <div className="content" style={{padding: '30px 150px'}}>
+                <p>
+                  <h3 className="is-2">Strzyżenie</h3>
+                  <br/>
+                </p>
+              </div>
+          }
+          {
+            this.state.currentOffer === 'combing' &&
+              <div className="content" style={{padding: '30px 150px'}}>
+                <p>
+                  <h3 className="is-2">Wyczesywanie</h3>
+                  <br/>
+                </p>
+              </div>
+          }
           </div>
         </section>
       </Layout>

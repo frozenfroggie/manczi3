@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
-import { FaAngleRight, FaAngleLeft, FaTimesCircle } from 'react-icons/fa';
+import { FaAngleRight, FaAngleLeft, FaTimesCircle, FaTimes } from 'react-icons/fa';
 
 import './all.sass'
 
@@ -114,7 +114,7 @@ class Lightbox extends Component {
     const { images } = this.props
     const { selectedImage } = this.state
     return (
-      <div className="gallery-modal">
+      <div className="gallery-modal" onClick={this.props.onClose}>
         <div className="gallery"
           onTouchStart={e => this.handleTouchStart(e)}
           onTouchMove={e => this.handleTouchMove(e)}
@@ -126,7 +126,7 @@ class Lightbox extends Component {
             </div>
           </button>
           {
-            images[selectedImage].description !== '' &&
+            images[selectedImage].description && images[selectedImage].description !== '' &&
               <div className="gallery-image-description">
                 {
                   images[selectedImage].description
@@ -139,7 +139,7 @@ class Lightbox extends Component {
             </div>
           </button>
           <div className="gallery-close" onClick={this.props.onClose} >
-            <FaTimesCircle size="2em" />
+            <FaTimes size="2em" color="#009999" />
           </div>
         </div>
       </div>
