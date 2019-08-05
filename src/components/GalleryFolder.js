@@ -40,6 +40,9 @@ const FolderFront = styled.div`
   border: 4px solid #009999;
   background-color: #BDE3DE;
   transition: all .4s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   /* transition-timing-function: cubic-bezier(.175, .885, .32, 1.275); */
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 `
@@ -66,9 +69,11 @@ const FolderBack = styled.div`
 `
 
 const Img = styled.img`
-  width: 100%;
-  height: 100%;
-  position: absolute;
+  width: 162px;
+  height: 162px;
+  min-width: 100%;
+  min-height: 100%;
+  position: relative;
   transition: all .4s;
 `
 
@@ -99,7 +104,7 @@ const GalleryFolder = props => {
             <Img className="text" src={props.titleImage.childImageSharp.fluid.src} alt="Clipping" />
           </FolderText>
           <FolderFront className="front">
-            <Img src={props.iconImage.childImageSharp.fluid.src} alt="Clipping" style={{top: -15, left: 0, width: '120%', height: '120%'}}/>
+            <Img src={props.iconImage.childImageSharp.fluid.src} alt="Gallery image" />
           </FolderFront>
           <FolderBack className="front">
             <div className="is-size-5" style={{color: "white", display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column'}}>
