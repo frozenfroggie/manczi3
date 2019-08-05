@@ -33,8 +33,6 @@ const FolderText = styled.div`
 
 const FolderFront = styled.div`
   position: absolute;
-  height: 170px;
-  width: 170px;
   border-radius: 50%;
   box-sizing: border-box;
   border: 4px solid #009999;
@@ -69,10 +67,10 @@ const FolderBack = styled.div`
 `
 
 const Img = styled.img`
-  width: 162px;
-  height: 162px;
   min-width: 100%;
   min-height: 100%;
+  width: 162px;
+  height: 162px;
   position: relative;
   transition: all .4s;
 `

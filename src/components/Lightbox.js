@@ -8,6 +8,7 @@ import './all.sass'
 class Lightbox extends Component {
   constructor(props) {
     super(props);
+    this.galleryRef = React.createRef();
     this.state = {
       selectedImage: 0,
       minX: 0,
@@ -110,12 +111,21 @@ class Lightbox extends Component {
       swipeDet
     })
   }
+  handleClick = e => {
+    var isClickInside = this.galleryRef.current.contains(e.target);
+    if (!isClickInside) {
+      e.stopPropagation();
+      e.nativeEvent.stopImmediatePropagation();
+      this.props.onClose();
+    }
+  }
   render() {
     const { images } = this.props
     const { selectedImage } = this.state
     return (
-      <div className="gallery-modal" onClick={this.props.onClose}>
+      <div className="gallery-modal" onClick={this.handleClick}>
         <div className="gallery"
+          ref={this.galleryRef}
           onTouchStart={e => this.handleTouchStart(e)}
           onTouchMove={e => this.handleTouchMove(e)}
           onTouchEnd={e => this.handleTouchEnd(e)}>
