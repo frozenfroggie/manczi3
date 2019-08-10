@@ -43,6 +43,7 @@ const EmployeeName = styled.div`
   flex-direction: column;
   position: relative;
   top: 0px;
+  z-index: 1;
   @media only screen and (min-width: 1088px) {
     top: -30px;
   }
@@ -73,6 +74,10 @@ const EmployeeNameSurname = styled.div`
   }
 `
 
+const Bold = styled.span`
+  font-weight: 600;
+`
+
 export default class OurTeamIndexPage extends React.Component {
   render() {
     return (
@@ -98,8 +103,12 @@ export default class OurTeamIndexPage extends React.Component {
           </div>
         </div>
         <section className="section">
-          <div className="container">
+          <div className="container" style={{zIndex: 10}}>
             <div className="content">
+              <p style={{marginTop: 20, marginBottom: 40, fontSize: '1.5em', textAlign: 'center'}}>
+                Nie możemy się doczekać, aby poznać Ciebie i Twoje zwiarzaki, a Ty już
+                teraz możesz poznać nas :)
+              </p>
               <div className="columns">
                 <div className="column is-3">
                   <a href="#magdalena">
@@ -130,9 +139,6 @@ export default class OurTeamIndexPage extends React.Component {
                   </a>
                 </div>
               </div>
-              <p style={{marginTop: 30}}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus egestas, nisl sed mollis laoreet, orci velit dapibus nibh, et efficitur ipsum eros a ipsum. Nullam eleifend eleifend libero, nec dictum justo condimentum eget. Suspendisse potenti. Phasellus id vehicula nibh, at pulvinar erat. Pellentesque placerat, ex et rutrum aliquet, massa lorem semper urna, vel feugiat est quam dictum tellus. Nam vel ligula condimentum dui fringilla placerat id ut tellus.
-              </p>
             </div>
           </div>
         </section>
@@ -151,11 +157,15 @@ export default class OurTeamIndexPage extends React.Component {
         <section className="section">
           <div className="container">
             <div className="content">
-            Właścicielka salonu. Grooming jest jej życiem od kilkunastu lat.
-            Największą frajdę sprawiają jej stylizacje azjatyckie i creative. Pasjonuje się groomingiem wystawowym bichon frise oraz
-            pudla.
-            Pupilami Magdy są kilkunastoletni pudel toy Abi oraz wystawowe pieski - bichon frise Star Wars Princess z Nieba i czarny
-            pudel średni Nikolajew Swan of Poland (w domu - Skywalker).
+              <p className="is-size-5">
+                Właścicielka salonu. Grooming jest jej życiem od kilkunastu lat.
+                Największą frajdę sprawiają jej <Bold>stylizacje azjatyckie i creative</Bold>. Pasjonuje się <Bold>groomingiem wystawowym</Bold> bichon frise oraz
+                pudla.
+                <br/>
+                <br/>
+                Pupilami Magdy są kilkunastoletni pudel toy Abi oraz wystawowe pieski - bichon frise Star Wars Princess z Nieba i czarny
+                pudel średni Nikolajew Swan of Poland (w domu - Skywalker).
+              </p>
             </div>
           </div>
         </section>
@@ -174,11 +184,15 @@ export default class OurTeamIndexPage extends React.Component {
         <section className="section">
           <div className="container">
             <div className="content">
-            Specjalizuje się w strzyżeniu klasycznym.
-            Ekspertka w pielęgnacj ras dużych.
-            Perfekcjonistka w przygotowaniu włosa i w starciach z kołtunami.
-            Prywatnie właścicielka kota, Irenki, a jej wielkim marzeniem jest
-            posiadanie pudla standardowego.
+              <p className="is-size-5">
+                Specjalizuje się w <Bold>strzyżeniu klasycznym</Bold>.
+                Ekspertka w pielęgnacj ras dużych.
+                Perfekcjonistka w przygotowaniu włosa i w starciach z kołtunami.
+                <br/>
+                <br/>
+                Prywatnie właścicielka kota, Irenki, a jej wielkim marzeniem jest
+                posiadanie pudla standardowego.
+              </p>
             </div>
           </div>
         </section>
@@ -197,10 +211,14 @@ export default class OurTeamIndexPage extends React.Component {
         <section className="section">
           <div className="container">
             <div className="content">
-            Zajmie się przygotowaniem Twojego pupila do strzyżenia.
-            Kąpiel i modelowanie włosa nie mają dla niej tajemnic. Jej konikiem jest trymowanie psów krótkowłosych.
-            W domu czekają na nią po pracy 3 mordeczki: ratlerek Lili,
-            yorkshire terrier Arni i hawańczyk Coco.
+              <p className="is-size-5">
+                Zajmie się przygotowaniem Twojego pupila do strzyżenia.
+                Kąpiel i modelowanie włosa nie mają dla niej tajemnic. Jej konikiem jest <Bold>trymowanie psów krótkowłosych</Bold>.
+                <br/>
+                <br/>
+                W domu czekają na nią po pracy 3 mordeczki: ratlerek Lili,
+                yorkshire terrier Arni i hawańczyk Coco.
+              </p>
             </div>
           </div>
         </section>
