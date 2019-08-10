@@ -7,11 +7,11 @@ const NewsTitle = styled.div`
   position: absolute;
   bottom: 0px;
   left: 0px;
-  padding: 25px 5px 7px;
+  padding: 35px 5px 7px;
   width: 100%;
   transition: all .2s;
   text-align: left;
-  background: linear-gradient(to top, rgba(237, 27, 104, 0.85), transparent);
+  background: linear-gradient(to top, rgb(0,153,153), transparent);
   a {
     font-weight: 600;
     color: white !important;

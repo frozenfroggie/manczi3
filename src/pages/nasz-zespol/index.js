@@ -15,10 +15,13 @@ const Strip = styled.div`
 const StripTitle = styled.div`
   width: 100%;
   height: 100%;
-  font-size: 5em;
   display: flex;
   align-items: center;
   font-family: Manczi;
+  font-size: 3.5em;
+  @media only screen and (min-width: 1088px) {
+    font-size: 5em;
+  }
 `
 
 const StripImage = styled.img`
@@ -29,26 +32,45 @@ const StripImage = styled.img`
   border: 1px solid red;
   border-radius: 50%;
   padding: 0px 50px;
+  display: none;
+  @media only screen and (min-width: 1088px) {
+    display: block;
+  }
 `
 
 const EmployeeName = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
-  top: -30px;
+  top: 0px;
+  @media only screen and (min-width: 1088px) {
+    top: -30px;
+  }
   div {
+    position: relative;
+    @media only screen and (max-width: 1087px) {
+      left: 20px;
+    }
     span {
       position: relative;
-      top: 100px;
-      font-size: 4em;
+      top: 20px;
+      font-size: 1.8em;
+      @media only screen and (min-width: 1088px) {
+        top: 100px;
+        font-size: 4em;
+      }
     }
   }
 `
 
 const EmployeeNameSurname = styled.div`
   position: relative;
-  top: -150px;
-  left: ${props => props.positionLeft}px;
+  top: -20px;
+  left: 20px;
+  @media only screen and (min-width: 1088px) {
+    top: -150px;
+    left: ${props => props.positionLeft}px;
+  }
 `
 
 export default class OurTeamIndexPage extends React.Component {
@@ -129,7 +151,11 @@ export default class OurTeamIndexPage extends React.Component {
         <section className="section">
           <div className="container">
             <div className="content">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pharetra, nunc eget rhoncus fermentum, erat est finibus dolor, eu dapibus enim elit sit amet dolor. Fusce aliquet lacus ac sapien viverra sagittis. Sed tempor rutrum nisl. Sed in purus ac diam hendrerit euismod. Mauris eget enim lacinia, pulvinar lorem ut, ornare ex. Praesent volutpat ultricies quam, id fringilla justo eleifend at. Duis consectetur faucibus laoreet.
+            Właścicielka salonu. Grooming jest jej życiem od kilkunastu lat.
+            Największą frajdę sprawiają jej stylizacje azjatyckie i creative. Pasjonuje się groomingiem wystawowym bichon frise oraz
+            pudla.
+            Pupilami Magdy są kilkunastoletni pudel toy Abi oraz wystawowe pieski - bichon frise Star Wars Princess z Nieba i czarny
+            pudel średni Nikolajew Swan of Poland (w domu - Skywalker).
             </div>
           </div>
         </section>
@@ -148,7 +174,11 @@ export default class OurTeamIndexPage extends React.Component {
         <section className="section">
           <div className="container">
             <div className="content">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pharetra, nunc eget rhoncus fermentum, erat est finibus dolor, eu dapibus enim elit sit amet dolor. Fusce aliquet lacus ac sapien viverra sagittis. Sed tempor rutrum nisl. Sed in purus ac diam hendrerit euismod. Mauris eget enim lacinia, pulvinar lorem ut, ornare ex. Praesent volutpat ultricies quam, id fringilla justo eleifend at. Duis consectetur faucibus laoreet.
+            Specjalizuje się w strzyżeniu klasycznym.
+            Ekspertka w pielęgnacj ras dużych.
+            Perfekcjonistka w przygotowaniu włosa i w starciach z kołtunami.
+            Prywatnie właścicielka kota, Irenki, a jej wielkim marzeniem jest
+            posiadanie pudla standardowego.
             </div>
           </div>
         </section>
@@ -167,7 +197,10 @@ export default class OurTeamIndexPage extends React.Component {
         <section className="section">
           <div className="container">
             <div className="content">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pharetra, nunc eget rhoncus fermentum, erat est finibus dolor, eu dapibus enim elit sit amet dolor. Fusce aliquet lacus ac sapien viverra sagittis. Sed tempor rutrum nisl. Sed in purus ac diam hendrerit euismod. Mauris eget enim lacinia, pulvinar lorem ut, ornare ex. Praesent volutpat ultricies quam, id fringilla justo eleifend at. Duis consectetur faucibus laoreet.
+            Zajmie się przygotowaniem Twojego pupila do strzyżenia.
+            Kąpiel i modelowanie włosa nie mają dla niej tajemnic. Jej konikiem jest trymowanie psów krótkowłosych.
+            W domu czekają na nią po pracy 3 mordeczki: ratlerek Lili,
+            yorkshire terrier Arni i hawańczyk Coco.
             </div>
           </div>
         </section>

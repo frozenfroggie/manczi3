@@ -22,13 +22,13 @@ const BackgroundWallpaper = styled.div`
 
 const TitleContainer = styled.span`
   font-size: 10px;
-  height: 150px;
+  height: 100px;
   background: none;
   padding: 30px 100px 30px 5px;
   @media only screen and (min-width: 1088px) {
     padding: 30px 100px 30px 30px;
     font-size: 15px;
-    height: 150px;
+    height: 170px;
   }
 `
 
@@ -137,7 +137,7 @@ export const IndexPageTemplate = ({
                         Do zobaczenia :)
                       </p>
                     </div>
-                    <div className="columns is-12">
+                    <div className="columns is-12 full-width-mobile">
                       <div className="column is-4 has-text-centered">
                         <Link style={{minWidth: 195}} className="btn-pink" to="/products">
                           Umów wizytę
@@ -219,7 +219,7 @@ export const pageQuery = graphql`
         title
         imageMobile {
           childImageSharp {
-            fluid(maxWidth: 900, quality: 100) {
+            fluid(maxWidth: 1000, quality: 100) {
               ...GatsbyImageSharpFluid
             }
           }
