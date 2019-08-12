@@ -170,6 +170,7 @@ const LinkStyled = styled.a`
 export default class OfferIndexPage extends React.Component {
   constructor(props) {
     super(props);
+    this.servicesRef = React.createRef();
     this.state = {
       positionX: 0,
       currentOffer: ''
@@ -201,6 +202,14 @@ export default class OfferIndexPage extends React.Component {
     this.setState({
       currentOffer: offer
     })
+    if(typeof window !== 'undefined' && window.innerWidth < 1087) {
+      console.log(this.servicesRef.current.clientHeight)
+      const heightToScroll = this.servicesRef.current.clientHeight;
+      window.scrollTo({
+        top: heightToScroll + 200,
+        behavior: 'smooth'
+      })
+    }
   }
   render() {
     return (
@@ -241,7 +250,7 @@ export default class OfferIndexPage extends React.Component {
                   </ArrowContainerLeft>
                 </div>
                 <div className="column is-10" style={{zIndex: 100, backgroundColor: 'white'}}>
-                  <div className="columns is-tablet is-12" style={{padding: '0px 20px', transition: 'transform .5s ease-in-out', transform: `translateX(calc(${this.state.positionX}% - ${40 * (this.state.positionX % 3)}px))`}}>
+                  <div ref={this.servicesRef} className="columns is-tablet is-12" style={{padding: '0px 20px', transition: 'transform .5s ease-in-out', transform: `translateX(calc(${this.state.positionX}% - ${40 * (this.state.positionX % 3)}px))`}}>
                     <div className="column is-4">
                       <ServiceWrapper onClick={() => this.openOffer('clipping')}>
                         <Service>
@@ -377,83 +386,84 @@ export default class OfferIndexPage extends React.Component {
         </section>
         <section className="section">
           <div className="container">
+            <div className="content" style={{padding: '30px 10%'}}>
             {
               this.state.currentOffer === 'dripping' &&
-              <div className="content" style={{padding: '30px 150px'}}>
-                <p>
+                <div>
                   <h3 className="is-2">Kąpiel</h3>
+                  <p>
+                    <br/>
+                    Kąpiel to podstawowa usługa jaką można wykonać w naszym Salonie.
+                    W zależności od struktury włosa, jego kondycji oraz oczekiwanego efektu dobieramy rodzaj
+                    kosmetyków, jakie zastosujemy do pielęgnacji Twojego pupila.<br/>
+                    Pracujemy na kosmetykach renomowanych firm przeznaczonych dla psów:<br/>
+                    m.in. K9, Botaniqa, Diamex, PSH, Double K.<br/>
+                    <br/>
+                    Wyróżniamy m.in. kąpiele nawilżające, odżywcze, nabłyszczające, lecznicze, pomagające pozbyć się podszerstka.<br/>
+                    <br/>
+                    Usługa kąpieli psa zawiera:<br/>
+                    • ocenę struktury i stanu szaty oraz skóry<br/>
+                    • dobranie odpowiednich kosmetyków w celu uzyskania oczekiwanego efektu<br/>
+                    • kąpiel psa w szamponie dogłąbnie myjącym, by pozbyć się brudu z sierści<br/>
+                    • kąpiel funkcyjnia z zastosowaniem kosmetyku pielęgnacyjnego<br/>
+                    • wysuszenie z modelowaniem szaty<br/>
+                    • czyszczenie uszu oraz oczu jeżeli jest to konieczne<br/>
+                    • przycięcie pazurów<br/>
+                    <br/>
+                    Usługa samej kąpieli jest możliwa tylko w przypadku ras nieliniejących oraz psów nieskołtunionych<br/>
+                  </p>
                   <br/>
-                  Kąpiel to podstawowa usługa jaką można wykonać w naszym Salonie.
-                  W zależności od struktury włosa, jego kondycji oraz oczekiwanego efektu dobieramy rodzaj
-                  kosmetyków, jakie zastosujemy do pielęgnacji Twojego pupila.<br/>
-                  Pracujemy na kosmetykach renomowanych firm przeznaczonych dla psów:<br/>
-                  m.in. K9, Botaniqa, Diamex, PSH, Double K.<br/>
                   <br/>
-                  Wyróżniamy m.in. kąpiele nawilżające, odżywcze, nabłyszczające, lecznicze, pomagające pozbyć się podszerstka.<br/>
-                  <br/>
-                  Usługa kąpieli psa zawiera:<br/>
-                  • ocenę struktury i stanu szaty oraz skóry<br/>
-                  • dobranie odpowiednich kosmetyków w celu uzyskania oczekiwanego efektu<br/>
-                  • kąpiel psa w szamponie dogłąbnie myjącym, by pozbyć się brudu z sierści<br/>
-                  • kąpiel funkcyjnia z zastosowaniem kosmetyku pielęgnacyjnego<br/>
-                  • wysuszenie z modelowaniem szaty<br/>
-                  • czyszczenie uszu oraz oczu jeżeli jest to konieczne<br/>
-                  • przycięcie pazurów<br/>
-                  <br/>
-                  Usługa samej kąpieli jest możliwa tylko w przypadku ras nieliniejących oraz psów nieskołtunionych<br/>
-                </p>
-                <br/>
-                <br/>
-                <p>
                   <h3 className="is-2">Kąpiel z kosmetyką</h3><br/>
-                  Kąpiel z kosmetyką to propozycja skierowana do właścicieli ras nieliniejących, piesków z szatą długą<br/>
-                  (typu maltańczyk, york, bichon, itp.).<br/>
-                  <br/>
-                  Jest to rozszerzona usługa kąpieli. Zawiera dodatkowo:<br/>
-                  • podcięcie okolic oczu, odbytu oraz miejsc intymnych<br/>
-                  • wycięcie włosów między poduszkami<br/>
-                  • przeczesanie szaty<br/>
-                  <br/>
-                  Oferta ta skierowana jest do właścicieli, którzy pragną by ich pupil miał zapewniony maksymalny komfort oraz cały czas wyglądał dobrze pomiędzy strzyżeniami.<br/>
-                </p>
-                <p>
-                  <br/>
-                  <h3 className="is-2">Kąpiele lecznicze</h3>
-                  <br/>
-                  W ofercie posiadamy kąpiele lecznicze z użyciem innowacyjnego, japońskiego systemu Nagayu.<br/><br/>
-                  <h4 className="is-3">Pozbycie się nieprzyjemnego zapachu oraz poprawa kondycji sierści</h4>
-                  System Nagayu CO2 działa dużo wydajniej niż standardowa kąpiel środkami do pielęgnacji. Dzięki działaniu
-                  jonów wodorowęglanowych oraz jonów wodorowych doskonale radzi sobie ze zmyciem odpadów mineralnych
-                  oraz brudu zatkanego w cebulce włosa.<br/>
-                  <br/>
-                  <h4 className="is-3">Pielęgnacja i wzmocnienie skóry</h4>
-                  Kąpiele przy użyciu systemu Nagayu przyspieszają proces gojenia, zwększjąc przepływ krwi, umożliwiając komórkom wchłanianie większej ilości składników odżywczych oraz tlenu w procesie regeneracji komórek. Aby
-                  unikąc przesuszenia w wyniku głebokiego czyszczenia skóry, do tabletek Nagayu dodano suplement nawilżający.<br/>
-                  <br/>
-                  <h4 className="is-3">Jak to działa?</h4>
-                  Tabletki Nagayu wydzielają miliony cząsteczek kwasu węglowego oraz jonów wodorowych zmieniając wodę
-                  w system SPA z CO2. Cząsteczki dwutlenku węgla przedostają się do naczyń krwionośnych i powodują ich rozszerzenie i zwiększenie przepływu krwi. W ten sposób komórki otrzymują więcej składników odżywczych i tlenu,
-                  co przyspiesza metabolizm i przyspiesza proces gojenia.<br/>
-                  <br/>
-                  By zapoznać się z efektami leczenia sytemem Nagayu zapraszam na stronę producenta:<br/>
-                  <br/>
-                  <h4 className="is-3"><a href="https://www.nagayu.com/" target="_blank">https://www.nagayu.com/</a></h4>
-                  Usługa kąpieli leczniczej z zastosowaniem systemu Nagayu zawiera:<br/>
-                  • ocenę stanu skóry oraz sierści<br/>
-                  • dobranie odpowiedniej dawki tabletek Nagayu SPA CO2<br/>
-                  • kąpiel oczyszczająca w szamponie dogłębnie myjącym<br/>
-                  • kąpiel funkcyjna w szamponie leczniczym<br/>
-                  • kąpiel z zastosowaniem systemu Nagayu SPA CO2<br/>
-                  • suszenie<br/>
-                  • czyszczenie oczu oraz uszu jeżeli to konieczne<br/>
-                </p>
-              </div>
+                  <p>
+                    Kąpiel z kosmetyką to propozycja skierowana do właścicieli ras nieliniejących, piesków z szatą długą<br/>
+                    (typu maltańczyk, york, bichon, itp.).<br/>
+                    <br/>
+                    Jest to rozszerzona usługa kąpieli. Zawiera dodatkowo:<br/>
+                    • podcięcie okolic oczu, odbytu oraz miejsc intymnych<br/>
+                    • wycięcie włosów między poduszkami<br/>
+                    • przeczesanie szaty<br/>
+                    <br/>
+                    Oferta ta skierowana jest do właścicieli, którzy pragną by ich pupil miał zapewniony maksymalny komfort oraz cały czas wyglądał dobrze pomiędzy strzyżeniami.<br/>
+                  </p>
+                  <div>
+                    <br/>
+                    <h3 className="is-2">Kąpiele lecznicze</h3>
+                    <br/>
+                    W ofercie posiadamy kąpiele lecznicze z użyciem innowacyjnego, japońskiego systemu Nagayu.<br/><br/>
+                    <h4 className="is-3">Pozbycie się nieprzyjemnego zapachu oraz poprawa kondycji sierści</h4>
+                    System Nagayu CO2 działa dużo wydajniej niż standardowa kąpiel środkami do pielęgnacji. Dzięki działaniu
+                    jonów wodorowęglanowych oraz jonów wodorowych doskonale radzi sobie ze zmyciem odpadów mineralnych
+                    oraz brudu zatkanego w cebulce włosa.<br/>
+                    <br/>
+                    <h4 className="is-3">Pielęgnacja i wzmocnienie skóry</h4>
+                    Kąpiele przy użyciu systemu Nagayu przyspieszają proces gojenia, zwększjąc przepływ krwi, umożliwiając komórkom wchłanianie większej ilości składników odżywczych oraz tlenu w procesie regeneracji komórek. Aby
+                    unikąc przesuszenia w wyniku głebokiego czyszczenia skóry, do tabletek Nagayu dodano suplement nawilżający.<br/>
+                    <br/>
+                    <h4 className="is-3">Jak to działa?</h4>
+                    Tabletki Nagayu wydzielają miliony cząsteczek kwasu węglowego oraz jonów wodorowych zmieniając wodę
+                    w system SPA z CO2. Cząsteczki dwutlenku węgla przedostają się do naczyń krwionośnych i powodują ich rozszerzenie i zwiększenie przepływu krwi. W ten sposób komórki otrzymują więcej składników odżywczych i tlenu,
+                    co przyspiesza metabolizm i przyspiesza proces gojenia.<br/>
+                    <br/>
+                    By zapoznać się z efektami leczenia sytemem Nagayu zapraszam na stronę producenta:<br/>
+                    <br/>
+                    <h4 className="is-3"><a href="https://www.nagayu.com/" target="_blank">https://www.nagayu.com/</a></h4>
+                    Usługa kąpieli leczniczej z zastosowaniem systemu Nagayu zawiera:<br/>
+                    • ocenę stanu skóry oraz sierści<br/>
+                    • dobranie odpowiedniej dawki tabletek Nagayu SPA CO2<br/>
+                    • kąpiel oczyszczająca w szamponie dogłębnie myjącym<br/>
+                    • kąpiel funkcyjna w szamponie leczniczym<br/>
+                    • kąpiel z zastosowaniem systemu Nagayu SPA CO2<br/>
+                    • suszenie<br/>
+                    • czyszczenie oczu oraz uszu jeżeli to konieczne<br/>
+                  </div>
+                </div>
             }
             {
               this.state.currentOffer === 'clipping' &&
-              <div className="content" style={{padding: '30px 150px'}}>
+              <div>
+                <h3 className="is-2">Strzyżenie</h3>
                 <p>
-                  <h3 className="is-2">Strzyżenie</h3>
                   <br/>
                   Strzyżenie w naszym salonie obejmuje pakiet kąpieli dobranej do struktury i
                   kondycji włosa oraz przycięcie sierści wedle ustalonych wytycznych.
@@ -467,9 +477,9 @@ export default class OfferIndexPage extends React.Component {
             }
             {
               this.state.currentOffer === 'combing' &&
-                <div className="content" style={{padding: '30px 150px'}}>
+                <div>
+                  <h3 className="is-2">Wyczesywanie</h3>
                   <p>
-                    <h3 className="is-2">Wyczesywanie</h3>
                     <br/>
                     Usługa skierowana jest do psów krótkowłosych ras liniejących oaz
                     długowłosych usługa obejmuje kąpiel oraz wyczesywanie sierści.
@@ -486,9 +496,9 @@ export default class OfferIndexPage extends React.Component {
             }
             {
               this.state.currentOffer === 'coloring' &&
-                <div className="content" style={{padding: '30px 150px'}}>
+                <div>
+                  <h3 className="is-2">Farbowanie i creative</h3>
                   <p>
-                    <h3 className="is-2">Farbowanie i creative</h3>
                     <br/>
                     Znudziło Ci się klasyczne strzyżenie pieska?
                     Chcesz by jego charakter podkreśliła nieszablonowa fryzura?
@@ -505,6 +515,7 @@ export default class OfferIndexPage extends React.Component {
                   </p>
                 </div>
             }
+            </div>
           </div>
         </section>
       </Layout>
