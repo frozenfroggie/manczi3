@@ -5,6 +5,10 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import Layout from '../../components/Layout'
 import OfferWallpaper from '../../img/offerWallpaper.jpg'
 
+import Emmi from '../../img/emmi.png'
+import EmmiText from '../../img/emmi-text.png'
+import Courses from '../../img/courses.png'
+import CoursesText from '../../img/courses-text.png'
 import Clipping from '../../img/clipping.png'
 import Dripping from '../../img/dripping.png'
 import Combing from '../../img/combing.png'
@@ -174,7 +178,7 @@ export default class OfferIndexPage extends React.Component {
   previous = () => {
     if(this.state.positionX == 0) {
       this.setState(prevState => ({
-        positionX: parseFloat((prevState.positionX - 99.9).toFixed(1))
+        positionX: parseFloat((prevState.positionX - 166.5).toFixed(1))
       }))
     } else {
       this.setState(prevState => ({
@@ -183,9 +187,9 @@ export default class OfferIndexPage extends React.Component {
     }
   }
   next = () => {
-    if(this.state.positionX == -99.9) {
+    if(this.state.positionX == -166.5) {
       this.setState(prevState => ({
-        positionX: parseFloat((prevState.positionX + 99.9).toFixed(1))
+        positionX: parseFloat((prevState.positionX + 166.5).toFixed(1))
       }))
     } else {
       this.setState(prevState => ({
@@ -323,6 +327,36 @@ export default class OfferIndexPage extends React.Component {
                           </ServiceText>
                           <ServiceFront className="front">
                             <Img src={Coloring} alt="Coloring" style={{top: -6, left: -6}}/>
+                          </ServiceFront>
+                          <ServiceBack className="front">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus varius condimentum nisl, a tristique magna placerat sed
+                          </ServiceBack>
+                        </Service>
+                      </ServiceWrapper>
+                    </div>
+                    <div className="column is-4">
+                      <ServiceWrapper onClick={() => this.openOffer('emmi')}>
+                        <Service>
+                          <ServiceText>
+                            <Img className="text" src={EmmiText} alt="Emmi-Pet" />
+                          </ServiceText>
+                          <ServiceFront className="front">
+                            <Img src={Emmi} alt="Emmi-Pet" style={{top: -3, left: -6}}/>
+                          </ServiceFront>
+                          <ServiceBack className="front">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus varius condimentum nisl, a tristique magna placerat sed
+                          </ServiceBack>
+                        </Service>
+                      </ServiceWrapper>
+                    </div>
+                    <div className="column is-4">
+                      <ServiceWrapper onClick={() => this.openOffer('courses')}>
+                        <Service>
+                          <ServiceText>
+                            <Img className="text" src={CoursesText} alt="Courses" />
+                          </ServiceText>
+                          <ServiceFront className="front">
+                            <Img src={Courses} alt="Courses" style={{top: -3, left: -3}}/>
                           </ServiceFront>
                           <ServiceBack className="front">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus varius condimentum nisl, a tristique magna placerat sed
