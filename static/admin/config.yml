@@ -17,3 +17,11 @@ collections:
       - {label: "Ikona folderu", name: "iconImage", widget: image}
       - {label: "Napis folderu", name: "titleImage", widget: image}
       - {label: "Zdjęcia", name: "galleryImages", widget: list,  fields: [{label: Image, name: image, widget: image}, {required: false, default: "", label: "Podpis", name: "description", widget: string}]}
+
+  - name: "index"
+    label: "Landing Page"
+    folder: "src/pages/index.md"
+    fields:
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "index-page"}
+      - {label: Info, name: info, widget: string}
+      - {label: Image, name: image, widget: image}

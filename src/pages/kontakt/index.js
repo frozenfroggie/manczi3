@@ -45,7 +45,7 @@ export default class Index extends React.Component {
         <section className="section" style={{minHeight: 'calc(100vh - 90px)'}}>
           <div className="container" style={{height: '100%'}}>
             <div className="content" style={{height: '100%'}}>
-              <div className="columns" style={{height: '450px'}}>
+              <div className="columns" style={{minHeight: '450px'}}>
                 <div className="column is-6">
                   <div style={{fontSize: '1.5em', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-evenly'}}>
                     <p style={{fontSize: '32px', marginBottom: '50px'}}>W celu umówienia się na wizytę prosimy o kontakt telefoniczny:</p>

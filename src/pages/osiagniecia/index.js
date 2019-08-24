@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from "styled-components"
 
+import BlogRoll from '../../components/BlogRoll'
 import OfferWallpaper from '../../img/offerWallpaper.jpg'
 import Layout from '../../components/Layout'
 
@@ -32,12 +33,7 @@ export default class AboutUsIndexPage extends React.Component {
         <section className="section">
           <div className="container">
             <div className="content">
-              <div className="columns">
-                <div className="column is-9">
-                </div>
-                <div className="column is-3">
-                </div>
-              </div>
+              <BlogRoll />
             </div>
           </div>
         </section>

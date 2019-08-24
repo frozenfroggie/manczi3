@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link, graphql } from 'gatsby'
 import styled from "styled-components"
+import { FaInfo, FaInfoCircle } from 'react-icons/fa';
 
 import Layout from '../components/Layout'
 import BlogRoll from '../components/BlogRoll'
@@ -50,7 +51,7 @@ export const IndexPageTemplate = ({
   image,
   imageMobile,
   title,
-  heading,
+  info,
   subheading,
   mainpitch,
   description,
@@ -109,6 +110,20 @@ export const IndexPageTemplate = ({
             }}
           >
             {subheading}
+          </Title>
+          <Title
+            weight="400"
+            size="1.5"
+            style={{
+              lineHeight: '1',
+              padding: '0.2em 0.5em',
+              textAlign: 'center'
+            }}>
+            <div style={{position: 'absolute', right: 20, bottom: -210, width: '30vw', border: '1px solid #ED1B68', borderRadius: '5px', padding: '25px 35px'}}>
+              <FaInfoCircle size="1.2em" style={{position: 'absolute', top: 10, left: 10}}>
+              </FaInfoCircle>
+              {info}
+            </div>
           </Title>
         </TitleContainer>
         <section id="section10" className="demo">
@@ -192,7 +207,7 @@ const IndexPage = ({ data }) => {
         image={frontmatter.image}
         imageMobile={frontmatter.imageMobile}
         title={frontmatter.title}
-        heading={frontmatter.heading}
+        info={frontmatter.info}
         subheading={frontmatter.subheading}
         mainpitch={frontmatter.mainpitch}
         description={frontmatter.description}
@@ -231,7 +246,7 @@ export const pageQuery = graphql`
             }
           }
         }
-        heading
+        info
         subheading
       }
     }
