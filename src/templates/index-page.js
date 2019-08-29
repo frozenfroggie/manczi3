@@ -5,7 +5,8 @@ import styled from "styled-components"
 import { FaInfo, FaInfoCircle } from 'react-icons/fa';
 
 import Layout from '../components/Layout'
-import BlogRoll from '../components/BlogRoll'
+import NewsRoll from '../components/NewsRoll'
+import InfoDescription from '../components/InfoDescription'
 
 const BackgroundWallpaper = styled.div`
   background-position: 0%;
@@ -52,10 +53,12 @@ export const IndexPageTemplate = ({
   imageMobile,
   title,
   info,
+  infoDescription,
   subheading,
   mainpitch,
   description,
   intro,
+  infoImage
 }) => {
   const pageHeight = typeof window !== 'undefined' && window.innerHeight;
   return (
@@ -119,11 +122,11 @@ export const IndexPageTemplate = ({
               padding: '0.2em 0.5em',
               textAlign: 'center'
             }}>
-            <div style={{position: 'absolute', right: 20, bottom: -210, width: '30vw', border: '1px solid #ED1B68', borderRadius: '5px', padding: '25px 35px'}}>
-              <FaInfoCircle size="1.2em" style={{position: 'absolute', top: 10, left: 10}}>
-              </FaInfoCircle>
-              {info}
-            </div>
+            <InfoDescription
+              info={info}
+              infoDescription={infoDescription}
+              image={!!infoImage.childImageSharp ? infoImage.childImageSharp.fluid.src : infoImage}>
+            </InfoDescription>
           </Title>
         </TitleContainer>
         <section id="section10" className="demo">
@@ -174,7 +177,7 @@ export const IndexPageTemplate = ({
                     <h3 className="has-text-weight-semibold is-size-2" style={{color: '#ED1B68', marginBottom: '50px'}}>
                       Aktualności
                     </h3>
-                    <BlogRoll />
+                    <NewsRoll />
                   </div>
                 </div>
               </div>
@@ -208,6 +211,8 @@ const IndexPage = ({ data }) => {
         imageMobile={frontmatter.imageMobile}
         title={frontmatter.title}
         info={frontmatter.info}
+        infoImage={frontmatter.infoImage}
+        infoDescription={frontmatter.infoDescription}
         subheading={frontmatter.subheading}
         mainpitch={frontmatter.mainpitch}
         description={frontmatter.description}
@@ -241,12 +246,20 @@ export const pageQuery = graphql`
         }
         image {
           childImageSharp {
-            fluid(maxWidth: 2048, quality: 100) {
+            fluid(maxWidth: 1980, quality: 100) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        infoImage {
+          childImageSharp {
+            fluid(maxWidth: 1024, quality: 100) {
               ...GatsbyImageSharpFluid
             }
           }
         }
         info
+        infoDescription
         subheading
       }
     }

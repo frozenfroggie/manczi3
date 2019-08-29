@@ -4,6 +4,7 @@ import styled from "styled-components"
 import BlogRoll from '../../components/BlogRoll'
 import OfferWallpaper from '../../img/offerWallpaper.jpg'
 import Layout from '../../components/Layout'
+import Aside from '../../components/Aside'
 
 export default class AboutUsIndexPage extends React.Component {
   render() {
@@ -33,6 +34,7 @@ export default class AboutUsIndexPage extends React.Component {
         <section className="section">
           <div className="container">
             <div className="content">
+              <Aside />
               <BlogRoll />
             </div>
           </div>
