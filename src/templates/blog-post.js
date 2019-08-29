@@ -25,11 +25,11 @@ export const BlogPostTemplate = ({
   const PostContent = contentComponent || Content
 
   return (
-    <section className="section" style={{marginBottom: '-100vh'}}>
+    <section className="section">
       {helmet || ''}
-      <div className="container content" style={{zIndex: 99, marginTop: 100}}>
+      <div className="container content">
         <div className="columns">
-          <div className="column is-9">
+          <div className="column is-12">
             <PostStyled>
               <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
                 {title}

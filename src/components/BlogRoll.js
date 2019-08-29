@@ -8,19 +8,21 @@ import { kebabCase } from 'lodash'
 import defaultDog from '../img/default_dog.png'
 
 const PostTile = styled.article`
+  position: relative;
   display: flex;
   flex-direction: column;
-  max-height: 650px;
-  background-color: rgba(250,250,250,0.7);
-  padding: 30px;
+  min-height: 580px;
+  background-color: rgb(250,250,250);
+  padding: 10px 30px;
   border-radius: 5px;
   overflow: hidden;
+  border: 1px solid #BDE3DE;
 `
 
 const PostTileImage = styled.div`
   background-image: url(${props => !!(props.image && props.image.childImageSharp) ? props.image.childImageSharp.fluid.src : defaultDog});
   width: 100%;
-  height: 250px;
+  height: 230px;
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
@@ -30,10 +32,10 @@ const PostTileHeader = styled.div`
   color: #202020;
   transition: color .2s;
   text-decoration: none;
-  min-height: 60px;
+  min-height: 50px;
   display: flex;
   align-items: center;
-  margin-top: 10px;
+  margin-top: 7px;
   &:hover {
     color: #339933;
   }
@@ -42,12 +44,12 @@ const PostTileDate = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 0px;
+  padding: 10px 0px;
   svg {
     position: relative;
     top: 1px;
     margin-right: 5px;
-    color: #339933;
+    color: #009999;
   }
   span {
     font-size: 0.9em;
@@ -58,11 +60,13 @@ const PostTileExcerpt = styled.div`
 `
 
 const PostTileMore = styled.div`
-  margin-top: 20px;
+  margin: 15px 0px 0px 0px;
   .button {
-    position: relative;
-    border: 1px solid #339933;
-    color: #339933;
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+    border: 1px solid #ED1B68;
+    color: #ED1B68;
     transition: all 0.3s;
     &:after {
       display: block;
@@ -77,7 +81,7 @@ const PostTileMore = styled.div`
     }
     &:hover {
       color: white;
-      background-color: #339933;
+      background-color: #ED1B68;
       &:after {
         opacity: 1;
         padding-left: .3em;
@@ -88,15 +92,17 @@ const PostTileMore = styled.div`
 `
 
 const TagList = styled.ul`
-  display: inline-block;
+  display: flex;
+  align-items: start;
   list-style-type: none;
   width: auto;
   margin-bottom: 24px;
+  margin-left: 0px !important;
   li {
     display: inline-block;
     padding: 0px 5px;
     list-style-type: none;
-    margin: 0px;
+    margin-top: 0px !important;
   }
 `
 
@@ -111,17 +117,20 @@ const FaContainer = styled.div`
   align-items: center;
   height: 100%;
   width: 25px;
+  margin-right: 5px;
 `
 
 class BlogRoll extends React.Component {
   render() {
-    const { data } = this.props
+    console.log(this.props)
+    const { data, tag } = this.props
     const { edges: posts } = data.allMarkdownRemark
 
     return (
       <div className="columns is-multiline">
         {posts &&
-          posts.map(({ node: post }) => (
+          posts.filter(({node: post}) => post.frontmatter.tags.includes(tag) || tag === 'all')
+            .map(({ node: post }) => (
             <div className="is-parent column is-4" key={post.id} style={{zIndex: 100}}>
               <PostTile className="is-child">
                 <Link
@@ -170,15 +179,7 @@ class BlogRoll extends React.Component {
   }
 }
 
-BlogRoll.propTypes = {
-  data: PropTypes.shape({
-    allMarkdownRemark: PropTypes.shape({
-      edges: PropTypes.array,
-    }),
-  }),
-}
-
-export default () => (
+export default ({tag}) => (
   <StaticQuery
     query={graphql`
       query BlogRollQuery {
@@ -212,6 +213,6 @@ export default () => (
         }
       }
     `}
-    render={(data, count) => <BlogRoll data={data} count={count} />}
+    render={(data, count) => <BlogRoll data={data} count={count} tag={tag}/>}
   />
 )

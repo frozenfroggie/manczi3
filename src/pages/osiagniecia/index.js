@@ -7,9 +7,20 @@ import Layout from '../../components/Layout'
 import Aside from '../../components/Aside'
 
 export default class AboutUsIndexPage extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      tag: 'all'
+    }
+  }
+  filterPostsBy = (tag) => {
+    console.log(tag)
+    this.setState({
+      tag
+    })
+  }
   render() {
     return (
-
       <Layout>
         <div
           className="full-width-image-container margin-top-0"
@@ -34,8 +45,8 @@ export default class AboutUsIndexPage extends React.Component {
         <section className="section">
           <div className="container">
             <div className="content">
-              <Aside />
-              <BlogRoll />
+              <Aside tag={this.state.tag} filterPostsBy={(tag) => this.filterPostsBy(tag)}/>
+              <BlogRoll tag={this.state.tag}/>
             </div>
           </div>
         </section>

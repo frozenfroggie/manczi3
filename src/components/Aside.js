@@ -2,14 +2,15 @@ import React from 'react'
 import { kebabCase } from 'lodash'
 import { Link, graphql, StaticQuery } from 'gatsby'
 import styled from "styled-components"
+import { FaFilter } from 'react-icons/fa';
+import classNames from 'classnames';
 
 const AsideStyled = styled.aside`
   width: 100%;
   height: auto;
-  background-color: rgba(250,250,250,0.7);
   z-index: 100;
-  padding: 30px;
-  margin-left: 0px; !important
+  margin-left: 0px !important;
+  margin-bottom: 60px;
 `
 
 const TagList = styled.ul`
@@ -32,6 +33,8 @@ const TagList = styled.ul`
 `
 
 const Aside = ({
+  filterPostsBy,
+  tag: selectedTag,
   data: {
     allMarkdownRemark: { group },
     site: {
@@ -40,13 +43,17 @@ const Aside = ({
   },
 }) => (
   <AsideStyled>
-    <h1 className="title is-size-2 is-bold-light">Kategorie</h1>
-    <TagList  className="columns is-12">
+    <TagList className="columns is-12">
+      <li key="all" className="column is-2" style={{marginTop: 4}} >
+        <div className={classNames(["btn-pink", {"btn-pink-active": 'all' === selectedTag}])} onClick={() => filterPostsBy('all')}>
+          Wszystkie
+        </div>
+      </li>
       {group.map(tag => (
-        <li key={tag.fieldValue} className="column is-3">
-          <Link className="btn-pink" to={`/tags/${kebabCase(tag.fieldValue)}/`}>
-            {tag.fieldValue.charAt(0).toUpperCase() + tag.fieldValue.slice(1) } ({tag.totalCount})
-          </Link>
+        <li key={tag.fieldValue} className="column is-2" style={{marginTop: 4}} >
+          <div className={classNames(["btn-pink", {"btn-pink-active": tag.fieldValue === selectedTag}])} onClick={() => filterPostsBy(tag.fieldValue)}>
+            {tag.fieldValue.charAt(0).toUpperCase() + tag.fieldValue.slice(1) }
+          </div>
         </li>
       ))}
     </TagList>
