@@ -9,9 +9,7 @@ description: >-
 featuredpost: true
 featuredimage: /img/affection-animal-canine-2640076.jpg
 tags:
-  - hodowla
-  - szczenięta
-  - ZKwP
+  - piszą o nas
 ---
 ![](/img/affection-animal-canine-2640076.jpg)
 
