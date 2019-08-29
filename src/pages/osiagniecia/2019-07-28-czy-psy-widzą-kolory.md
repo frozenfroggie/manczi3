@@ -8,8 +8,7 @@ description: >-
 featuredpost: true
 featuredimage: /img/kolor.jpg
 tags:
-  - ciekawostki
-  - ''
+  - szkolenia
 ---
 ![](/img/kolor.jpg)
 
