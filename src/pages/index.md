@@ -1,8 +1,8 @@
 ---
 templateKey: index-page
 info: >-
-  Kochani! Od 5.01-13.01 jesteśmy na urlopie ⛷ czas odpocząć, więc salon przez
-  tydzień będzie zamknięty
+  Kochani! Jesteśmy na urlopie ⛷ w dniach 5.01-13.01 - czas odpocząć, więc salon
+  przez tydzień będzie zamknięty
 infoDescription: >-
   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam id dapibus
   arcu, quis rhoncus ligula. Class aptent taciti sociosqu ad litora torquent per
