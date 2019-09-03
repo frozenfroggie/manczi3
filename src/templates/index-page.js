@@ -232,7 +232,6 @@ export const pageQuery = graphql`
   query IndexPageTemplate {
     markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
       frontmatter {
-        title
         infoImage {
           childImageSharp {
             fluid(maxWidth: 1024, quality: 100) {
@@ -242,7 +241,6 @@ export const pageQuery = graphql`
         }
         info
         infoDescription
-        subheading
       }
     }
   }
