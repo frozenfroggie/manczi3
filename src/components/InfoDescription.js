@@ -18,12 +18,17 @@ class InfoDescription extends React.Component {
     return (
       <div className="info">
         {
-          <div onClick={this.toogleInfoDescription} style={{zIndex: 100, backgroundColor: 'rgba(250,250,250,.9)', overflowY: 'auto', transition: 'all 0.1s linear', position: 'absolute', right: 20, bottom: this.state.infoDescriptionExtended ? -250 : -210, width: this.state.infoDescriptionExtended ? '80vw' : '30vw', maxHeight: this.state.infoDescriptionExtended ? '80vh' : 'auto', border: '1px solid #ED1B68', borderRadius: '5px', padding: this.state.infoDescriptionExtended ? '35px 40px' : '25px 35px'}}>
-            <FaInfoCircle size="1.2em" style={{position: 'absolute', top: 10, left: 10}}>
-            </FaInfoCircle>
+          <div onClick={this.toogleInfoDescription} style={{zIndex: 100, backgroundColor: 'rgba(250,250,250,.9)', overflowY: this.state.infoDescriptionExtended ? 'auto' : 'visible', transition: 'all 0.1s linear', position: 'absolute', right: 20, bottom: this.state.infoDescriptionExtended ? 0 : 0, width: this.state.infoDescriptionExtended ? '80vw' : 'inherit', maxHeight: this.state.infoDescriptionExtended ? '80vh' : 'auto', border: '1px solid #009999', borderRadius: '5px', padding: this.state.infoDescriptionExtended ? '35px 40px' : '25px 35px'}}>
             {
-              info
+              !this.state.infoDescriptionExtended &&
+              <FaInfoCircle size="2em" style={{position: 'absolute', top: -7, left: -10}}>
+              </FaInfoCircle>
             }
+            <div style={{fontSize: '1.1em'}}>
+              {
+                info
+              }
+            </div>
             {
               this.state.infoDescriptionExtended && infoDescription &&
               <div style={{marginTop: 35}}>
@@ -35,7 +40,7 @@ class InfoDescription extends React.Component {
             }
             {
               !this.state.infoDescriptionExtended && infoDescription &&
-              <FaExpand size="1.2em" style={{position: 'absolute', top: 10, right: 10}}>
+              <FaExpand size="1.5em" style={{position: 'absolute', top: 10, right: 10}}>
               </FaExpand>
             }
           </div>

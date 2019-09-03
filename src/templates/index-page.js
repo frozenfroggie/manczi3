@@ -11,6 +11,7 @@ import NewsRoll from '../components/NewsRoll'
 import InfoDescription from '../components/InfoDescription'
 
 const BackgroundWallpaper = styled.div`
+  position: relative;
   background-position: 0%;
   background-size: cover;
   margin-top: -90px;
@@ -122,13 +123,13 @@ export const IndexPageTemplate = ({
               padding: '0.2em 0.5em',
               textAlign: 'center'
             }}>
-            <InfoDescription
-              info={info}
-              infoDescription={infoDescription}
-              image={!!infoImage.childImageSharp ? infoImage.childImageSharp.fluid.src : infoImage}>
-            </InfoDescription>
           </Title>
         </TitleContainer>
+        <InfoDescription
+          info={info}
+          infoDescription={infoDescription}
+          image={!!infoImage.childImageSharp ? infoImage.childImageSharp.fluid.src : infoImage}>
+        </InfoDescription>
         <section id="section10" className="demo">
           <a onClick={() => typeof window !== 'undefined' && window.scrollTo({ top: pageHeight + 50, behavior: 'smooth' })}><span></span></a>
         </section>

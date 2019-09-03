@@ -39,7 +39,7 @@ class NewsRoll extends React.Component {
             </div>
           </div>
           <div className="is-12 has-text-centered">
-            <Link style={{width: '100%'}} className="btn btn-pink" to="/blog">
+            <Link style={{width: '100%'}} className="btn btn-pink" to="/osiagniecia">
               Pokaż więcej
             </Link>
           </div>
