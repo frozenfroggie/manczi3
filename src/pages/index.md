@@ -25,4 +25,3 @@ infoDescription: >-
   nibh. Maecenas imperdiet finibus dui a tempor.
 infoImage: /img/narty.jpg
 ---
-

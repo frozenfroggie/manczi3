@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 import { Link, graphql } from 'gatsby'
 import styled from "styled-components"
 import { FaInfo, FaInfoCircle } from 'react-icons/fa';
+import homeJumbotron from "../img/home-jumbotron.jpg";
+import homeJumbotronMobile from "../img/home-jumbotron-mobile.jpg";
 
 import Layout from '../components/Layout'
 import NewsRoll from '../components/NewsRoll'
@@ -14,11 +16,11 @@ const BackgroundWallpaper = styled.div`
   margin-top: -90px;
   width: 100%;
   height: 100vh;
-  background-image: url(${props => props.imageMobile});
+  background-image: url(${homeJumbotronMobile});
   @media only screen and (min-width: 1088px) {
     background-position: 50%;
     margin-top: -85px;
-    background-image: url(${props => props.image});
+    background-image: url(${homeJumbotron});
   }
 `
 
@@ -63,9 +65,7 @@ export const IndexPageTemplate = ({
   const pageHeight = typeof window !== 'undefined' && window.innerHeight;
   return (
     <div>
-      <BackgroundWallpaper
-        image={!!image.childImageSharp ? image.childImageSharp.fluid.src : image}
-        imageMobile={!!imageMobile.childImageSharp ? imageMobile.childImageSharp.fluid.src : imageMobile}>
+      <BackgroundWallpaper>
         <TitleContainer
           style={{
             position: 'relative',
@@ -100,7 +100,7 @@ export const IndexPageTemplate = ({
               textAlign: 'right',
             }}
           >
-            {title}
+            Podaruj swojemu psu luksus,
           </Title>
           <Title
             weight="400"
@@ -112,7 +112,7 @@ export const IndexPageTemplate = ({
               letterSpacing: '1.3px'
             }}
           >
-            {subheading}
+            na jaki zasługuje!
           </Title>
           <Title
             weight="400"
@@ -157,17 +157,17 @@ export const IndexPageTemplate = ({
                     </div>
                     <div className="columns is-12 full-width-mobile">
                       <div className="column is-4 has-text-centered">
-                        <Link style={{minWidth: 195}} className="btn-pink" to="/products">
+                        <Link style={{minWidth: 195}} className="btn-pink" to="/kontakt">
                           Umów wizytę
                         </Link>
                       </div>
                       <div className="column is-4 has-text-centered">
-                        <Link style={{minWidth: 195}} className="btn-blue" to="/products">
+                        <Link style={{minWidth: 195}} className="btn-blue" to="/oferta">
                           Pokaż ofertę
                         </Link>
                       </div>
                       <div className="column is-4 has-text-centered">
-                        <Link style={{minWidth: 195}} className="btn-blue" to="/products">
+                        <Link style={{minWidth: 195}} className="btn-blue" to="/galeria">
                           Zobacz galerię
                         </Link>
                       </div>
@@ -207,13 +207,9 @@ const IndexPage = ({ data }) => {
   return (
     <Layout>
       <IndexPageTemplate
-        image={frontmatter.image}
-        imageMobile={frontmatter.imageMobile}
-        title={frontmatter.title}
         info={frontmatter.info}
         infoImage={frontmatter.infoImage}
         infoDescription={frontmatter.infoDescription}
-        subheading={frontmatter.subheading}
         mainpitch={frontmatter.mainpitch}
         description={frontmatter.description}
         intro={frontmatter.intro}
@@ -237,20 +233,6 @@ export const pageQuery = graphql`
     markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
       frontmatter {
         title
-        imageMobile {
-          childImageSharp {
-            fluid(maxWidth: 1000, quality: 100) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-        image {
-          childImageSharp {
-            fluid(maxWidth: 1980, quality: 100) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
         infoImage {
           childImageSharp {
             fluid(maxWidth: 1024, quality: 100) {

@@ -129,7 +129,7 @@ class BlogRoll extends React.Component {
     return (
       <div className="columns is-multiline">
         {posts &&
-          posts.filter(({node: post}) => post.frontmatter.tags.includes(tag) || tag === 'all')
+          posts.filter(({node: post}) => post.frontmatter.tags.includes(tag))
             .map(({ node: post }) => (
             <div className="is-parent column is-4" key={post.id} style={{zIndex: 100}}>
               <PostTile className="is-child">
