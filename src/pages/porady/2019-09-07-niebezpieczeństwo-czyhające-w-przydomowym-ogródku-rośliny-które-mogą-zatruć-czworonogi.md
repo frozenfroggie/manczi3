@@ -1,8 +1,6 @@
 ---
 templateKey: blog-post
-title: >-
-  Niebezpieczeństwo czyhające w przydomowym ogródku. Rośliny, które mogą zatruć
-  czworonogi
+title: Niebezpieczeństwo czyhające w przydomowym ogródku.
 date: 2019-09-07T10:59:39.010Z
 tags:
   - porady
