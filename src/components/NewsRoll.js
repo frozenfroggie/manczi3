@@ -22,7 +22,8 @@ const NewsTitle = styled.div`
 class NewsRoll extends React.Component {
   render() {
     const { data } = this.props
-    const { edges: posts } = data.allMarkdownRemark
+    let { edges: posts } = data.allMarkdownRemark
+    posts = posts.filter(post => post.node.frontmatter.tags[0] !== 'porady')
     const imageStyle = { borderRadius: '5px', width: '100%' }
     return (
       <div className="columns is-multiline">
@@ -73,6 +74,7 @@ export default () => (
                 slug
               }
               frontmatter {
+                tags
                 title
                 templateKey
                 date(formatString: "MMMM DD, YYYY")
