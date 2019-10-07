@@ -222,7 +222,6 @@ export default class OfferIndexPage extends React.Component {
               backgroundImage: `url(${OfferWallpaper})`
             }}>
             <div style={{
-              background: 'linear-gradient(to top right, rgba(0,153,153,0.7), 10%, transparent, 90%, rgba(0,153,153,0.5))',
               color: '#009999',
               padding: '2rem 6rem',
               width: '100%',
