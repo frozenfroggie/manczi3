@@ -89,14 +89,14 @@ export default class OurTeamIndexPage extends React.Component {
           }}>
           <div style={{
             color: '#009999',
-            padding: '2rem 6rem',
+            padding: '2rem 5rem',
             width: '100%',
             height: '100%',
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center'
           }}>
-            <h2 className="has-text-weight-bold is-size-1">
+            <h2 className="has-text-weight-bold is-size-1 is-size-3-mobile has-text-centered">
               Nasz zespół
             </h2>
           </div>

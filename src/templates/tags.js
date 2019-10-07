@@ -2,6 +2,7 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import { Link, graphql } from 'gatsby'
 import Layout from '../components/Layout'
+import OfferWallpaper from '../img/offerWallpaper.jpg'
 
 class TagRoute extends React.Component {
   render() {
@@ -18,6 +19,29 @@ class TagRoute extends React.Component {
     const totalCount = this.props.data.allMarkdownRemark.totalCount
     return (
       <Layout>
+        {
+          tag === 'porady' &&
+          <div
+          className="full-width-image-container margin-top-0"
+          style={{
+            backgroundImage: `url(${OfferWallpaper})`,
+            marginBottom: 20
+          }}>
+            <div style={{
+              color: '#009999',
+              padding: '2rem 6rem',
+              width: '100%',
+              height: '100%',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center'
+            }}>
+              <h2 className="has-text-weight-bold is-size-1 is-size-3-mobile has-text-centered">
+                Porady
+              </h2>
+            </div>
+          </div>
+        }
         <section className="section">
           <Helmet title={`${tag} | ${title}`} />
           <div className="container content">
