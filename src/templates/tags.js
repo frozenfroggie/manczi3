@@ -36,8 +36,8 @@ class TagRoute extends React.Component {
               justifyContent: 'center',
               alignItems: 'center'
             }}>
-              <h2 className="has-text-weight-bold is-size-1 is-size-3-mobile has-text-centered">
-                Porady
+              <h2 className="has-text-weight-bold is-size-1 is-size-3-mobile has-text-centered manczi-font">
+                porady
               </h2>
             </div>
           </div>

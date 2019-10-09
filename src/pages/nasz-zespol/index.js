@@ -96,8 +96,8 @@ export default class OurTeamIndexPage extends React.Component {
             justifyContent: 'center',
             alignItems: 'center'
           }}>
-            <h2 className="has-text-weight-bold is-size-1 is-size-3-mobile has-text-centered">
-              Nasz zespół
+            <h2 className="has-text-weight-bold is-size-1 is-size-3-mobile has-text-centered manczi-font">
+              nasz zespół
             </h2>
           </div>
         </div>
