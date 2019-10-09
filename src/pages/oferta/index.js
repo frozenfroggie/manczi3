@@ -256,9 +256,10 @@ export default class OfferIndexPage extends React.Component {
                           <ServiceFront className="front">
                             <Img src={Clipping} alt="Clipping" style={{top: -6, left: -6}}/>
                           </ServiceFront>
-                          <ServiceBack className="front">
-                          <FaInfo size="2em" style={{margin: 15}} />
-                          <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', textAlign: 'center'}}>Kliknij aby dowiedzieć <br/> się więcej!</div>                          </ServiceBack>
+                          <ServiceBack className="front" style={{display: 'flex', flexDirection: 'column'}}>
+                            <FaInfo size="2em" style={{margin: 15}} />
+                            <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', textAlign: 'center'}}>Kliknij aby dowiedzieć <br/> się więcej!</div>
+                          </ServiceBack>
                         </Service>
                       </ServiceWrapper>
                     </div>
@@ -287,7 +288,7 @@ export default class OfferIndexPage extends React.Component {
                           <ServiceFront className="front">
                             <Img src={Combing} alt="Combing" style={{top: -3, left: -3}}/>
                           </ServiceFront>
-                          <ServiceBack className="front">
+                          <ServiceBack className="front" style={{display: 'flex', flexDirection: 'column'}}>
                             <FaInfo size="2em" style={{margin: 15}} />
                             <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', textAlign: 'center'}}>Kliknij aby dowiedzieć <br/> się więcej!</div>
                           </ServiceBack>
@@ -303,8 +304,9 @@ export default class OfferIndexPage extends React.Component {
                           <ServiceFront className="front">
                             <Img src={Trimming} alt="Trimming" style={{top: -2, left: -6}}/>
                           </ServiceFront>
-                          <ServiceBack className="front">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus varius condimentum nisl, a tristique magna placerat sed
+                          <ServiceBack className="front" style={{display: 'flex', flexDirection: 'column'}}>
+                            <FaInfo size="2em" style={{margin: 15}} />
+                            <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', textAlign: 'center'}}>Kliknij aby dowiedzieć <br/> się więcej!</div>
                           </ServiceBack>
                         </Service>
                       </ServiceWrapper>
@@ -318,8 +320,9 @@ export default class OfferIndexPage extends React.Component {
                           <ServiceFront className="front">
                             <Img src={Exhibitions} alt="Exhibitions" style={{top: -8, left: 0}}/>
                           </ServiceFront>
-                          <ServiceBack className="front">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus varius condimentum nisl, a tristique magna placerat sed
+                          <ServiceBack className="front" style={{display: 'flex', flexDirection: 'column'}}>
+                            <FaInfo size="2em" style={{margin: 15}} />
+                            <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', textAlign: 'center'}}>Kliknij aby dowiedzieć <br/> się więcej!</div>
                           </ServiceBack>
                         </Service>
                       </ServiceWrapper>
@@ -333,8 +336,9 @@ export default class OfferIndexPage extends React.Component {
                           <ServiceFront className="front">
                             <Img src={Coloring} alt="Coloring" style={{top: -6, left: -6}}/>
                           </ServiceFront>
-                          <ServiceBack className="front">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus varius condimentum nisl, a tristique magna placerat sed
+                          <ServiceBack className="front" style={{display: 'flex', flexDirection: 'column'}}>
+                            <FaInfo size="2em" style={{margin: 15}} />
+                            <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', textAlign: 'center'}}>Kliknij aby dowiedzieć <br/> się więcej!</div>
                           </ServiceBack>
                         </Service>
                       </ServiceWrapper>
@@ -348,8 +352,9 @@ export default class OfferIndexPage extends React.Component {
                           <ServiceFront className="front">
                             <Img src={Emmi} alt="Emmi-Pet" style={{top: -3, left: -6}}/>
                           </ServiceFront>
-                          <ServiceBack className="front">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus varius condimentum nisl, a tristique magna placerat sed
+                          <ServiceBack className="front" style={{display: 'flex', flexDirection: 'column'}}>
+                            <FaInfo size="2em" style={{margin: 15}} />
+                            <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', textAlign: 'center'}}>Kliknij aby dowiedzieć <br/> się więcej!</div>
                           </ServiceBack>
                         </Service>
                       </ServiceWrapper>
@@ -363,8 +368,9 @@ export default class OfferIndexPage extends React.Component {
                           <ServiceFront className="front">
                             <Img src={Courses} alt="Courses" style={{top: -3, left: -3}}/>
                           </ServiceFront>
-                          <ServiceBack className="front">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus varius condimentum nisl, a tristique magna placerat sed
+                          <ServiceBack className="front" style={{display: 'flex', flexDirection: 'column'}}>
+                            <FaInfo size="2em" style={{margin: 15}} />
+                            <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', textAlign: 'center'}}>Kliknij aby dowiedzieć <br/> się więcej!</div>
                           </ServiceBack>
                         </Service>
                       </ServiceWrapper>
