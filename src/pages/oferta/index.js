@@ -468,11 +468,11 @@ export default class OfferIndexPage extends React.Component {
                 <p>
                   <br/>
                   Strzyżenie w naszym salonie obejmuje pakiet kąpieli dobranej do struktury i
-                  kondycji włosa oraz przycięcie sierści wedle ustalonych wytycznych.
+                  kondycji włosa oraz przycięcie sierści wedle ustalonych wytycznych.<br/><br/>
                   Stale podnosimy standardy usług szkoląc się i śledząc najnowsze trendy na
-                  świecie.
-                  Nasze prace znajdują uznanie zarówno w kraju jak i za granicą.
-                  Zapraszamy do zapoznania się z Galerią oraz Osiągnięciami
+                  świecie.<br/>
+                  Nasze prace znajdują uznanie zarówno w kraju jak i za granicą.<br/><br/>
+                  Zapraszamy do zapoznania się z <a href="/galeria"><b>Galerią</b></a> oraz <a href="/osiagniecia"><b>Osiągnięciami</b></a>
                   <br/>
                 </p>
               </div>
@@ -484,7 +484,7 @@ export default class OfferIndexPage extends React.Component {
                   <p>
                     <br/>
                     Usługa skierowana jest do psów krótkowłosych ras liniejących oaz
-                    długowłosych usługa obejmuje kąpiel oraz wyczesywanie sierści.
+                    długowłosych usługa obejmuje kąpiel oraz wyczesywanie sierści.<br/><br/>
                     W zależności od potrzeb użyty jest odpowiedni kosmetyk. W przypadku ras
                     krótkowłosych oraz liniejących będą to specjalne kosmetyki pozwalające na
                     wyczesanie maksymalnej ilości sierści, co ułatwi właścicielowi pielęgnacje psa
@@ -502,17 +502,57 @@ export default class OfferIndexPage extends React.Component {
                   <h3 className="is-2">Farbowanie i creative</h3>
                   <p>
                     <br/>
-                    Znudziło Ci się klasyczne strzyżenie pieska?
-                    Chcesz by jego charakter podkreśliła nieszablonowa fryzura?
+                    Znudziło Ci się klasyczne strzyżenie pieska?<br/>
+                    Chcesz by jego charakter podkreśliła nieszablonowa fryzura?<br/><br/>
                     Dobrze trafiłeś! Jesteśmy jednym z niewielu salonów w Polsce, które oferują
-                    usługi farbowania oraz kreatywnego strzyżenia.
+                    usługi farbowania oraz kreatywnego strzyżenia.<br/>
                     W salonie używamy specjalistycznych środków koloryzujących,
                     przeznaczonych specjalnie dla zwierząt. Są to farby koreańskie oraz
                     amerykańskie z różnym stopniem trwałości - w zależności od potrzeb
-                    właściciela, efekt utrzymuje się od kilku dni do kilku miesięcy.
+                    właściciela, efekt utrzymuje się od kilku dni do kilku miesięcy.<br/><br/>
                     Strzyżenie kreatywne polega na dobraniu do psa nieszablonowej fryzury, o
                     niestandardowym kształcie (na przykład wycięcie skrzydeł w sierści,
                     asymetrii głowy lub brokatowego tatuażu na tułowiu)
+                    <br/>
+                  </p>
+                </div>
+            }
+            {
+              this.state.currentOffer === 'emmi' &&
+                <div>
+                  <h3 className="is-2">Emmi-pet</h3>
+                  <p>
+                    <br/>
+                    W salonie prowadzimy kosmetyczne usuwanie kamienia nazębnego przy
+                    pomocy ultradźwiękowej szczoteczki <b>emmi-pet.</b><br/>
+                    Zabieg ten wykonywany jest bez użycia środków uspokajających i
+                    usypiających.<br/><br/>
+                    <b>Przed umówieniem się na zabieg potrzebna jest konsultacja w celu
+                    oceny stanu uzębienia i zakwalifikowania do zabiegu, bądź skierowania
+                    do usuwania kamienia u weterynarza.</b>
+                    <br/>
+                  </p>
+                </div>
+            }
+            {
+              this.state.currentOffer === 'courses' &&
+                <div>
+                  <h3 className="is-2">Kursy groomerskie</h3>
+                  <p>
+                    <br/>
+                    Chętnie dzielimy się wiedzą na kursach podstawowych oraz doszkalających.
+                    Podstawowe kursy prowadzimy w dwóch częściach: teoretycznej oraz
+                    praktycznej.<br/>
+                    Kursanci dostają materiały do nauki w domu oraz zestaw nożyczek do
+                    ćwiczeń.<br/>
+                    Po odbytym kursie uczniowie poddawani są egzaminowi praktycznemu i
+                    teoretycznemu, które sprawdzają stan wiedzy i umiejętności.<br/><br/>
+                    <b>Kursanci od pierwszego dnia pracują z nami w salonie.</b><br/><br/>
+                    Koszt kursu podstawowego:<br/>
+                    2 tygodnie 5000 zł<br/>
+                    3 tygodnie 6000 zł<br/>
+                    4 tygodnie 6500 zł<br/><br/>
+                    Kurs doszkalajacy – 500 zł/dzień<br/>
                     <br/>
                   </p>
                 </div>
