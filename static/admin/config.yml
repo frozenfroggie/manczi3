@@ -46,10 +46,10 @@ collections:
       - {label: "Zdjęcia", name: "galleryImages", widget: list,  fields: [{label: Image, name: image, widget: image}, {required: false, default: "", label: "Podpis", name: "description", widget: string}]}
 
   - name: "index"
-    label: "Landing Page"
+    label: "Strona główna - ogłoszenie"
     folder: "src/pages"
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "index-page"}
       - {label: Info, name: info, widget: string}
       - {label: "Dodatkowe informacje", name: infoDescription, widget: string, required: false}
-      - {label: "Zdjęcie informacji", name: infoImage, widget: image, required: false}
+      - {label: "Zdjęcie", name: infoImage, widget: image, required: false}
